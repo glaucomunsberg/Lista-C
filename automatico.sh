@@ -2,6 +2,17 @@
 echo "-------------------------------------------------"
 echo "                 Commit automatic                "
 echo "-------------------------------------------------"
+echo "- Deseja inserir algo no README?S/N             -"
+read opcao
+if [ opcao = 'S' ]
+then
+	echo "- README:                                       -"
+	read valor
+	$valor > README
+else
+echo ""
+fi
+
 echo "- Carregando os arquivos...                     -"
 git add *.*
 echo "- Insira o nome do commit:                      -"
