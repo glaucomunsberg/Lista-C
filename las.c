@@ -15,21 +15,24 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 	 * 				0	- Se houver erro
 	 * 				1	- Se não houver erro
 	 */
+	 printf("INSERIR...");
 	int i;
 	if(descritor->position >= MAX)
 	{
-		printf("Lista cheia\n");
+		printf("Ooops! Lista cheia\n");
 		return 0;
 	}
 	else
 	{
+		printf("NO INSERIR !");
 		if(posicao > descritor->position || posicao < 0 )
 		{
-			printf("Posição Inexistente\n");
+			printf("Ooops! Posição Inexistente\n");
 			return 0;
 		}
 		else
 		{
+			printf("NO ELSE");
 			for(i= descritor->position-1; i >= posicao; i--)
 			{
 				descritor->vet[i+1] = descritor->vet[i];
@@ -52,6 +55,7 @@ int * get(unsigned int posicao, struct desc_lista *descritor)
 	 * 				retorna ponteiro para o elemento da lista de ordem posicao
 	 * 				ou null
 	 */
+	 
 	if(posicao >= descritor->position || posicao < 0)
 	{
 		return NULL;
@@ -74,6 +78,7 @@ int set(int posicao, int x, struct desc_lista *descritor)
 	 * 				0	- Caso ocorra um erro
 	 * 				1 	- Caso tenha sucesso
 	 */
+	 
 	if(posicao >= descritor->position || posicao < 0)
 	{
 		return 0;
@@ -97,6 +102,7 @@ int delete(int posicao, struct desc_lista *descritor)
 	 * 				0	- Caso ocorra um erro
 	 * 				1	- Caso tenha sucesso
 	 */
+	 
 	int i;
 	if( descritor->position < posicao )
 	{
@@ -136,6 +142,7 @@ unsigned int length(struct desc_lista *descritor)
 	 * Saída:
 	 * 				Retorna o comprimento da lista
 	 */
+	 
 	return descritor->position;
 }
 
