@@ -4,10 +4,9 @@ echo "                 Commit automatic                "
 echo "-------------------------------------------------"
 echo "- Deseja inserir algo no README?S/N             -"
 read opcao
-
 if [ "S" = "$opcao" ];
 then
-	touch README
+	su touch README
 	gedit README
 else
 echo ""
