@@ -12,8 +12,9 @@ int main(int argc, char **argv)
 	int chave;
 	int retorno;
 	unsigned int posicao;
-	desc_lista descritor;
-	descritor.position = 0;
+	desc_lista descritor; 
+	descritor = malloc(sizeof(desc_lista));
+	descritor.position = 1;
 	//-------------------------------------
 	
 	for(;;)
@@ -34,8 +35,8 @@ int main(int argc, char **argv)
 					printf("Lista de Alocação Seguencial - INSERT\nPosição:\n");
 					scanf("%d", &posicao);
 					printf("Valor\n");
-					chave = 1;
-					retorno  = insert( posicao, chave, &descritor);
+					scanf("%d", &chave);
+					retorno  = insert( posicao, chave, descritor);
 					if( retorno == 1)
 					{
 						printf("O valor foi inserido com sucesso.");
