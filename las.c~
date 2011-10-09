@@ -97,7 +97,7 @@ int delete(int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
-	 * 		Descritor	- A estrutura por um ponteiro
+	 * 				Descritor	- A estrutura por um ponteiro
 	 *
 	 * Função:		Deleta o valor daquela posição
 	 * 
@@ -107,13 +107,13 @@ int delete(int posicao, struct desc_lista *descritor)
 	 */
 	 
 	int i;
-	if( descritor->position <= posicao )
+	if( descritor->position < posicao )
 	{
 		return 0;
 	}
 	else
 	{
-		//descritor->position = descritor->position - 1;	
+		descritor->position = descritor->position - 1;
 		for(i= posicao; i<descritor->position; i++)
 		{
 			descritor->vet[i] = descritor->vet[i+1];

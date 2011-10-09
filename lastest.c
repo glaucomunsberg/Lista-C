@@ -10,12 +10,13 @@ int main(int argc, char **argv)
 	int escolha;
 	int chave;
 	int retorno;
+	int *ptr;
+	int posi;
 	unsigned int posicao;
 	desc_lista descritor;
-	//descritor = (desc_lista*) malloc(sizeof(struct desc_lista));
 	descritor.position = 0;
 	//-------------------------------------
-	retorno = MAX;
+	
 	for(;;)
 	{
 		printf("Lista de Alocação Seguencial\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Imprimir\n0.Sair\nESCOLHA:");
@@ -44,9 +45,35 @@ int main(int argc, char **argv)
 						printf("O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
 					break;
-			case 2: printf("Get\n");
+			case 2: 
+					system("clear");
+					printf("Lista de Alocação Seguencial - GET\nPosição:\n");
+					scanf("%d", &posicao);
+					ptr = get(posicao, &descritor);
+					if( ptr == NULL)
+					{
+						printf("A posição %d não pode ser acessada.\n", posicao);
+					}
+					else
+					{
+						printf("A posicao %d foi acessada.\n", posicao);
+					}
 					break;
-			case 3: printf("Set\n");
+			case 3: 
+					system("clear");
+					printf("Lista de Alocação Seguencial - SET\nPosição:\n");
+					scanf("%d",&posi);
+					printf("Valor:\n");
+					scanf("%d", &chave);
+					retorno = set(posi, chave, &descritor);
+					if(retorno == 1)
+					{
+						printf("O valor foi inserido com sucesso.\n");
+					}
+					else
+					{
+						printf("O valor %d não pode ser inserido na posição %d", chave, posicao);
+					}
 					break;
 			case 4: 
 					system("clear");
@@ -76,7 +103,6 @@ int main(int argc, char **argv)
 
 void imprimir(struct desc_lista *descritor)
 {
-	printf("VALOR DO POSITION %d", descritor->position);
 	system("clear");
 	printf("Lista de Alocação Seguencial - IMPRIMIR\n");
 	int i;
