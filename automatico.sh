@@ -24,9 +24,9 @@ if [ "C" = "$coup" ]; then
 	echo "-                  Commitado!                   -"
 	echo "-------------------------------------------------"
 else
-	echo "Push... 					      -"
+	echo "- Push...                                       -"
 	git remote add origin git@github.com:glaucomunsberg/PHP.git
 	git push origin master
-	echo "-                  Push!	                      -"
+	echo "-                  Push!                        -"
 	echo "-------------------------------------------------"
 fi
