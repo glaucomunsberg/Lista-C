@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	unsigned int posicao;
 	desc_lista descritor; 
 	descritor = malloc(sizeof(desc_lista));
-	descritor.position = 1;
+	descritor.position = 0;
 	//-------------------------------------
 	
 	for(;;)
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 					scanf("%d", &posicao);
 					printf("Valor\n");
 					scanf("%d", &chave);
-					retorno  = insert( posicao, chave, descritor);
+					retorno  = insert( 0, 0, &descritor);
 					if( retorno == 1)
 					{
 						printf("O valor foi inserido com sucesso.");
