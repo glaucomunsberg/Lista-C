@@ -9,7 +9,7 @@ if [ "C" = "$coup" ]; then
 	read opcao
 	#
 	if [ "S" = "$opcao" ]; then
-		gedit README
+		geany README
 		git add README
 	fi
 	#
