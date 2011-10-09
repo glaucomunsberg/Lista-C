@@ -2,6 +2,7 @@
 #include "lista.h"
 #include <stdlib.h>
 
+
 void imprimir(struct desc_lista * descritor);
 int main(int argc, char **argv)
 {
