@@ -17,7 +17,7 @@ if [ "C" = "$coup" ]; then
 	git add *.*
 	echo "- Insira o nome do commit:                      -"
 	read nome
-	git commit -m $nome
+	git commit -m ${nome// /_}
 	echo "- Commintando...                                -"
 	git remote add origin git@github.com:glaucomunsberg/PHP.git
 	git push origin master
