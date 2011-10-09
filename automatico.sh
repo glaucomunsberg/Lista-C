@@ -14,7 +14,8 @@ if [ "C" = "$coup" ]; then
 	fi
 	#
 	echo "- Carregando os arquivos...                     -"
-	git add *.* Makefile
+	git Makefile
+	git add *.*
 	echo "- Insira o nome do commit:                      -"
 	read nome
 	git commit -m ${nome// /_}
