@@ -6,7 +6,7 @@ echo "- Deseja inserir algo no README?S/N             -"
 read opcao
 if [ "S" = "$opcao" ];
 then
-	su touch README
+	touch README
 	gedit README
 else
 echo ""
