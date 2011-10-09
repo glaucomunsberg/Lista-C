@@ -1,6 +1,6 @@
-#include "lista.h"
+#include "las.h"
 #include <stdio.h>
-int insert(unsigned int posicao, int chave, struct desc_lista * descritor)
+int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:
@@ -15,21 +15,24 @@ int insert(unsigned int posicao, int chave, struct desc_lista * descritor)
 	 * 				0	- Se houver erro
 	 * 				1	- Se não houver erro
 	 */
+	 printf("INSERIR...");
 	int i;
 	if(descritor->position >= MAX)
 	{
-		printf("Lista cheia\n");
+		printf("Ooops! Lista cheia\n");
 		return 0;
 	}
 	else
 	{
+		printf("NO INSERIR !");
 		if(posicao > descritor->position || posicao < 0 )
 		{
-			printf("Posição Inexistente\n");
+			printf("Ooops! Posição Inexistente\n");
 			return 0;
 		}
 		else
 		{
+			printf("NO ELSE");
 			for(i= descritor->position-1; i >= posicao; i--)
 			{
 				descritor->vet[i+1] = descritor->vet[i];
@@ -40,7 +43,7 @@ int insert(unsigned int posicao, int chave, struct desc_lista * descritor)
 		}
 	}
 }
-int * get(unsigned int posicao, struct desc_lista * descritor)
+int * get(unsigned int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -52,16 +55,17 @@ int * get(unsigned int posicao, struct desc_lista * descritor)
 	 * 				retorna ponteiro para o elemento da lista de ordem posicao
 	 * 				ou null
 	 */
+	 
 	if(posicao >= descritor->position || posicao < 0)
 	{
 		return NULL;
 	}
 	else
 	{
-		return &lista->vet[posicao];
+		return &descritor->vet[posicao];
 	}
 }
-int set(int posicao, int x, struct desc_lista * descritor)
+int set(int posicao, int x, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -74,6 +78,7 @@ int set(int posicao, int x, struct desc_lista * descritor)
 	 * 				0	- Caso ocorra um erro
 	 * 				1 	- Caso tenha sucesso
 	 */
+	 
 	if(posicao >= descritor->position || posicao < 0)
 	{
 		return 0;
@@ -85,7 +90,7 @@ int set(int posicao, int x, struct desc_lista * descritor)
 	}
 	
 }
-int delete(int posicao, struct desc_lista * descritor)
+int delete(int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -97,6 +102,7 @@ int delete(int posicao, struct desc_lista * descritor)
 	 * 				0	- Caso ocorra um erro
 	 * 				1	- Caso tenha sucesso
 	 */
+	 
 	int i;
 	if( descritor->position < posicao )
 	{
@@ -113,7 +119,7 @@ int delete(int posicao, struct desc_lista * descritor)
 		return 1;
 	}
 }
-int * locate(int chave, struct desc_lista * descritor)
+int * locate(int chave, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Chave		- valor
@@ -126,7 +132,7 @@ int * locate(int chave, struct desc_lista * descritor)
 	 */
 	return 0;
 }
-unsigned int length(struct desc_lista * descritor)
+unsigned int length(struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Descritor	- A estrutura por um ponteiro
@@ -136,6 +142,8 @@ unsigned int length(struct desc_lista * descritor)
 	 * Saída:
 	 * 				Retorna o comprimento da lista
 	 */
+	 
 	return descritor->position;
 }
 
+	
