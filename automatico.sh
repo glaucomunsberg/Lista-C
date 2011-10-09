@@ -9,7 +9,7 @@ if [ "C" = "$coup" ]; then
 	read opcao
 	#
 	if [ "S" = "$opcao" ]; then
-		gedit README
+		nano README
 		git add README
 	fi
 	#
@@ -21,12 +21,16 @@ if [ "C" = "$coup" ]; then
 	echo "- Commintando...                                -"
 	git remote add origin git@github.com:glaucomunsberg/PHP.git
 	git push origin master
+	clear
+	echo "-------------------------------------------------"
 	echo "-                  Commitado!                   -"
 	echo "-------------------------------------------------"
 else
 	echo "- Push...                                       -"
 	git remote add origin git@github.com:glaucomunsberg/PHP.git
 	git push origin master
+	clear
+	echo "-------------------------------------------------"
 	echo "-                  Push!                        -"
 	echo "-------------------------------------------------"
 fi
