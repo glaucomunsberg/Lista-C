@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "lista.h"
+#include "las.h"
 #include <stdlib.h>
 
 
@@ -17,11 +17,10 @@ int main(int argc, char **argv)
 }
 void imprimir(struct desc_lista * descritor)
 {
+	int i;
 	if(descritor->position != 0)
 	{
-		dd
 		printf("Vetor: [");
-		int i;
 		for(i=0; i<descritor->position;i++)
 		{
 			if(i+1 != descritor->position)

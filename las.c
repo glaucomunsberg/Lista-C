@@ -1,6 +1,6 @@
-#include "lista.h"
+#include "las.h"
 #include <stdio.h>
-int insert(unsigned int posicao, int chave, struct desc_lista * descritor)
+int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:
@@ -40,7 +40,7 @@ int insert(unsigned int posicao, int chave, struct desc_lista * descritor)
 		}
 	}
 }
-int * get(unsigned int posicao, struct desc_lista * descritor)
+int * get(unsigned int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -58,10 +58,10 @@ int * get(unsigned int posicao, struct desc_lista * descritor)
 	}
 	else
 	{
-		return &lista->vet[posicao];
+		return &descritor->vet[posicao];
 	}
 }
-int set(int posicao, int x, struct desc_lista * descritor)
+int set(int posicao, int x, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -85,7 +85,7 @@ int set(int posicao, int x, struct desc_lista * descritor)
 	}
 	
 }
-int delete(int posicao, struct desc_lista * descritor)
+int delete(int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -113,7 +113,7 @@ int delete(int posicao, struct desc_lista * descritor)
 		return 1;
 	}
 }
-int * locate(int chave, struct desc_lista * descritor)
+int * locate(int chave, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Chave		- valor
@@ -126,7 +126,7 @@ int * locate(int chave, struct desc_lista * descritor)
 	 */
 	return 0;
 }
-unsigned int length(struct desc_lista * descritor)
+unsigned int length(struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Descritor	- A estrutura por um ponteiro
@@ -139,3 +139,4 @@ unsigned int length(struct desc_lista * descritor)
 	return descritor->position;
 }
 
+	
