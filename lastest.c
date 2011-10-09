@@ -12,9 +12,9 @@ int main(int argc, char **argv)
 	int chave;
 	int retorno;
 	unsigned int posicao;
-	desc_lista descritor; 
+	desc_lista *descritor; 
 	descritor = malloc(sizeof(desc_lista));
-	descritor.position = 0;
+	descritor->position = 1;
 	//-------------------------------------
 	
 	for(;;)
@@ -39,18 +39,30 @@ int main(int argc, char **argv)
 					retorno  = insert( 0, 0, &descritor);
 					if( retorno == 1)
 					{
-						printf("O valor foi inserido com sucesso.");
+						printf("O valor foi inserido com sucesso.\n");
 					}
 					else
 					{
-						printf("O valor %d não pode ser inserido na posição %d", chave, posicao);
+						printf("O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
 					break;
 			case 2: printf("Get\n");
 					break;
 			case 3: printf("Set\n");
 					break;
-			case 4: printf("Delete\n");
+			case 4: 
+					system("clear");
+					printf("Lista de Alocação Seguencial - DELETE\nPosição:\n");
+					scanf("%d", &posicao);
+					retorno = delete(posicao, &descritor);
+					if( retorno == 1)
+					{
+						printf("O valor foi deletado com sucesso.\n");
+					}
+					else
+					{
+						printf("A posição %d não pode ser deletada.\n", posicao);
+					}
 					break;
 			case 5: printf("Locate\n");
 					break;
@@ -66,6 +78,8 @@ int main(int argc, char **argv)
 
 void imprimir(struct desc_lista *descritor)
 {
+	descritor->position++;
+	descritor->vet[0] = 0;
 	system("clear");
 	printf("Lista de Alocação Seguencial - IMPRIMIR\n");
 	int i;
