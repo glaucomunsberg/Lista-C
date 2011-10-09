@@ -9,7 +9,7 @@ if [ "S" = "$opcao" ];
 then
 	echo "- README:                                       -"
 	read valor
-	echo "echo $valor > README"
+	echo $valor > README
 else
 echo ""
 fi
