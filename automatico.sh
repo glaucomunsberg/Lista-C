@@ -7,9 +7,7 @@ read opcao
 
 if [ "S" = "$opcao" ];
 then
-	echo "- README:                                       -"
-	read valor
-	echo $valor > README
+	gedit README
 else
 echo ""
 fi
