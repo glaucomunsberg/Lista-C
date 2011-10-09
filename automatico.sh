@@ -1,5 +1,4 @@
 #!/bin/bash
-git init
 echo "-------------------------------------------------"
 echo "                 Commit automatic                "
 echo "-------------------------------------------------"
@@ -8,8 +7,6 @@ read opcao
 
 if [ "S" = "$opcao" ];
 then
-	touch README
-	echo ""
 	gedit README
 else
 echo ""
