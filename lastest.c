@@ -26,14 +26,14 @@ int main(int argc, char **argv)
 		}while( escolha < 0 && escolha >6);
 		switch(escolha)
 		{
-			case 0: printf("Saindo do programa");
+			case 0: printf("Saindo do programa...");
 					exit(0);
 					break;
 			case 1:
 					system("clear");
 					printf("Lista de Alocação Seguencial - INSERT\nPosição:\n");
 					scanf("%d", &posicao);
-					printf("Valor\n");
+					printf("Valor:\n");
 					scanf("%d", &chave);
 					retorno  = insert(posicao, chave, &descritor);
 					if( retorno == 1)
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 					}
 					else
 					{
-						printf("O valor %d não pode ser inserido na posição %d\n", chave, posicao);
+						printf("Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
 					break;
 			case 2: 
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 					ptr = get(posicao, &descritor);
 					if( ptr == NULL)
 					{
-						printf("A posição %d não pode ser acessada.\n", posicao);
+						printf("Ooops! A posição %d não pode ser acessada.\n", posicao);
 					}
 					else
 					{
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 					}
 					else
 					{
-						printf("O valor %d não pode ser inserido na posição %d", chave, posicao);
+						printf("Ooops! O valor %d não pode ser inserido na posição %d", chave, posicao);
 					}
 					break;
 			case 4: 
@@ -86,18 +86,17 @@ int main(int argc, char **argv)
 					}
 					else
 					{
-						printf("A posição %d não pode ser deletada.\n", posicao);
+						printf("Ooops! A posição %d não pode ser deletada.\n", posicao);
 					}
 					break;
 			case 5: printf("Locate\n");
 					break;
 			case 6: imprimir( &descritor);
 					break;
-			default: printf("Ooops! Você não deveria estar aqui!"); exit(0);
+			default: printf("Ooops! Você não deveria estar aqui! o.O"); exit(0);
 		}
 		
 	}
-	printf("...Fim\n");
 	return 0;
 }
 

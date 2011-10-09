@@ -16,7 +16,6 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 	 * 				0	- Se houver erro
 	 * 				1	- Se não houver erro
 	 */
-	 printf("INSERIR...");
 	int i;
 	if(descritor->position >= MAX)
 	{
@@ -25,7 +24,6 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 	}
 	else
 	{
-		printf("NO INSERIR !");
 		if(posicao > descritor->position || posicao < 0 )
 		{
 			printf("Ooops! Posição Inexistente\n");
