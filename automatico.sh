@@ -4,7 +4,7 @@ echo "                 Commit automatic                "
 echo "-------------------------------------------------"
 echo "- Deseja inserir algo no README?S/N             -"
 read opcao
-if [ opcao = 'S' ]
+if [ opcao = S ]
 then
 	echo "- README:                                       -"
 	read valor
