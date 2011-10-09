@@ -7,6 +7,7 @@ read opcao
 
 if [ "S" = "$opcao" ];
 then
+	touch README
 	gedit README
 else
 echo ""
