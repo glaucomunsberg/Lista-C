@@ -8,3 +8,7 @@ Versão 0.2
 		Remoção de conflito com o Fedora15
 Versão 0.3
 		Correções de compulação nos arquivos .h e .c
+Versão 0.4
+		Introdução do Makefile ao sync
+		Introdução do Imprimir
+		Introdução do Inserir
