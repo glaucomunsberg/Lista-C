@@ -1,22 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "las.h"
-
-
 void imprimir(struct desc_lista *descritor);
 void menu(struct desc_lista *descritor);
 int main(int argc, char **argv)
 {
+	
 	//----Identificadores & Atribuições----
 	int escolha;
 	int chave;
 	int retorno;
 	unsigned int posicao;
-	desc_lista *descritor; 
-	descritor = malloc(sizeof(desc_lista));
-	descritor->position = 1;
+	desc_lista descritor;
+	//descritor = (desc_lista*) malloc(sizeof(struct desc_lista));
+	descritor.position = 0;
 	//-------------------------------------
-	
+	retorno = MAX;
 	for(;;)
 	{
 		printf("Lista de Alocação Seguencial\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Imprimir\n0.Sair\nESCOLHA:");
@@ -24,7 +23,6 @@ int main(int argc, char **argv)
 		{
 			scanf("%d",&escolha);
 		}while( escolha < 0 && escolha >6);
-		
 		switch(escolha)
 		{
 			case 0: printf("Saindo do programa");
@@ -36,7 +34,7 @@ int main(int argc, char **argv)
 					scanf("%d", &posicao);
 					printf("Valor\n");
 					scanf("%d", &chave);
-					retorno  = insert( 0, 0, &descritor);
+					retorno  = insert(posicao, chave, &descritor);
 					if( retorno == 1)
 					{
 						printf("O valor foi inserido com sucesso.\n");
@@ -66,7 +64,7 @@ int main(int argc, char **argv)
 					break;
 			case 5: printf("Locate\n");
 					break;
-			case 6: imprimir(&descritor);
+			case 6: imprimir( &descritor);
 					break;
 			default: printf("Ooops! Você não deveria estar aqui!"); exit(0);
 		}
@@ -78,8 +76,7 @@ int main(int argc, char **argv)
 
 void imprimir(struct desc_lista *descritor)
 {
-	descritor->position++;
-	descritor->vet[0] = 0;
+	printf("VALOR DO POSITION %d", descritor->position);
 	system("clear");
 	printf("Lista de Alocação Seguencial - IMPRIMIR\n");
 	int i;

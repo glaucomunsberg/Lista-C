@@ -1,5 +1,6 @@
 #include "las.h"
 #include <stdio.h>
+
 int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 {
 	/*
@@ -32,10 +33,12 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 		}
 		else
 		{
-			printf("NO ELSE");
-			for(i= descritor->position-1; i >= posicao; i--)
+			if( descritor->position != 0)
 			{
-				descritor->vet[i+1] = descritor->vet[i];
+				for(i= descritor->position; i > posicao; i--)
+				{
+					descritor->vet[i] = descritor->vet[i-1];
+				}
 			}
 			descritor->position++;
 			descritor->vet[posicao] = chave;

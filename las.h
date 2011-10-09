@@ -1,7 +1,6 @@
 #ifndef LAS_H 
 #define LAS_H
 #define MAX 10
-
 typedef struct desc_lista{
 	int vet[MAX];
 	int position;
