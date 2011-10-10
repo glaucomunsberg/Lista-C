@@ -30,10 +30,21 @@ while [ $start = true ]; do
 		echo "-------------------------------------------------"
 		echo "-                  Commitado!                   -"
 		echo "-------------------------------------------------"
+		read nada
 	else
 		if [ "0" = "$commitar" ]; then
-			echo "Saindo...";sleep 1;exit;
+			clear
+			echo "-------------------------------------------------";
+			echo "                      GITHUB                     ";
+			echo "-------------------------------------------------";
+			echo "- Saindo...                                     -";
+			sleep 1;
+			clear;
+			exit;
 		fi
+		clear
+		echo "-------------------------------------------------"
+		echo "                      GITHUB                     "
 		echo "-------------------------------------------------"
 		echo "1- Resetar SSH service                          -"
 		echo "2- Git Pull                                     -"
@@ -48,28 +59,36 @@ while [ $start = true ]; do
 				sudo systemctl restart sshd.service;
 				sleep 1;
 				sudo ssh -T git@github.com
-				sleep 1;
-				echo "-------------------------------------------------";;
+				echo "-------------------------------------------------";
+				read outros;;
 			2) 	clear;
 				echo "-------------------------------------------------";
 				echo "- Github Pull...                                -";
 				git remote add drnic git://github.com/glaucomunsber/PHP.git
 				git pull
-				sleep 1;
-				echo "-------------------------------------------------";;
+				echo "-------------------------------------------------";
+				read outros;;
 			3) 	clear;
 				echo "-------------------------------------------------";
 				echo "- Teste de Conexão..                            -";
 				sudo ssh -T git@github.com
-				sleep 1;
-				echo "-------------------------------------------------";;
+				echo "-------------------------------------------------";
+				read outros;;
 			4) 	clear;
 				echo "-------------------------------------------------";
 				echo "- Status...                                     -";
 				sudo git status
+				echo "-------------------------------------------------";
+				read outros;;
+			0) 
+				clear
+				echo "-------------------------------------------------";
+				echo "                      GITHUB                     ";
+				echo "-------------------------------------------------";
+				echo "- Saindo...                                     -";
 				sleep 1;
-				echo "-------------------------------------------------";;
-			0) echo "Saindo...";sleep 1;exit;;
+				clear;
+				exit;;
 		esac
 
 	fi
