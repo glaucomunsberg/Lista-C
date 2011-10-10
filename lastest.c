@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	
 	for(;;)
 	{
-		printf("Lista de Alocação Seguencial\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Imprimir\n0.Sair\nESCOLHA:");
+		printf("Lista de Alocação Seguencial\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Length\n7.Imprimir\n0.Sair\nESCOLHA:");
 		do
 		{
 			scanf("%d",&escolha);
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 					}
 					else
 					{
-						printf("A posicao %d foi acessada.\n", posicao);
+						printf("O valor da posição %d é %d\n", posicao, *ptr);
 					}
 					break;
 			case 3: 
@@ -91,7 +91,13 @@ int main(int argc, char **argv)
 					break;
 			case 5: printf("Locate\n");
 					break;
-			case 6: imprimir( &descritor);
+			case 6:
+					system("clear");
+					printf("Lista de Alocação Seguencial - LENGTH\n");
+					retorno = length( &descritor);
+					printf("A Lista tem comprimento %d\n", retorno);
+					break;
+			case 7: imprimir( &descritor);
 					break;
 			default: printf("Ooops! Você não deveria estar aqui! o.O"); exit(0);
 		}
