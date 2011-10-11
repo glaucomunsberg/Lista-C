@@ -1,16 +1,35 @@
+Versão 0.5.1
+		Correções
+			Correção do endereço do ponteiro no get
+		Introdução
+			Nova Interface ao automático
+			Locate
+Versão 0.5
+		Correções
+			Inserir
+			Imprimir
+			Interface
+				Do programam
+				Do automatico
+		Introdução
+			Set
+			Get
+			Delete
+Versão 0.4
+		Introdução
+			Makefile ao sync
+			Imprimir
+			Inserir
+Versão 0.3
+		Correções de compulação nos arquivos .h e .c
+Versão 0.2
+		Correções de erros de compilação
+		Remoção de conflito com o Fedora15
 Versão 0.1
 	Automatico.sh
 		Automatização do processo de Commit
 		Nome com espaço convertido para underline
 		Escolha de Commit/Push
-Versão 0.2
-		Correções de erros de compilação
-		Remoção de conflito com o Fedora15
-Versão 0.3
-		Correções de compulação nos arquivos .h e .c
-Versão 0.4
-		Introdução do Makefile ao sync
-		Introdução do Imprimir
-		Introdução do Inseri
-Versão 0.5
-		Correção do Inserir
+
+--------Issues & Troubles
+	-> NULL

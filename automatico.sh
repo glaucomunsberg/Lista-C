@@ -10,7 +10,7 @@ while [ $start = true ]; do
 	echo "0- Sair                                         -"
 	read commitar
 	if [ "1" = "$commitar" ]; then
-		echo "- Deseja inserir algo no README?S/N             -"
+		echo "- Deseja inserir algo no README? S/N            -"
 		read opcao
 		#
 		if [ "S" = "$opcao" ]; then
@@ -20,6 +20,7 @@ while [ $start = true ]; do
 		#
 		echo "- Carregando os arquivos...                     -"
 		git add *.*
+		git add README
 		echo "- Insira o nome do commit:                      -"
 		read nome
 		git commit -m ${nome// /_}
