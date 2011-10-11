@@ -44,7 +44,7 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 		}
 	}
 }
-int * get(unsigned int posicao, struct desc_lista *descritor)
+int *get(unsigned int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
@@ -52,9 +52,8 @@ int * get(unsigned int posicao, struct desc_lista *descritor)
 	 *
 	 * Função:		Retorna o valor da posição POSICAO da estrutura
 	 * 
-	 * Saída:
-	 * 				retorna ponteiro para o elemento da lista de ordem posicao
-	 * 				ou null
+	 * Saída:		NULL		- Caso ocorra um erro
+	 * 				Ponteiro	- Caso tenha sucesso
 	 */
 	 
 	if(posicao >= descritor->position || posicao < 0)
@@ -75,8 +74,7 @@ int set(int posicao, int x, struct desc_lista *descritor)
 	 *
 	 * Função:		Insere o valor X na posição POSICAO na estrutura
 	 * 
-	 * Saída:
-	 * 				0	- Caso ocorra um erro
+	 * Saída:		0	- Caso ocorra um erro
 	 * 				1 	- Caso tenha sucesso
 	 */
 	 
@@ -95,12 +93,11 @@ int delete(int posicao, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	Posicao		- Contem a posicao em que deve ser inserido
-	 * 		Descritor	- A estrutura por um ponteiro
+	 * 				Descritor	- A estrutura por um ponteiro
 	 *
 	 * Função:		Deleta o valor daquela posição
 	 * 
-	 * Saída:
-	 * 				0	- Caso ocorra um erro
+	 * Saída:		0	- Caso ocorra um erro
 	 * 				1	- Caso tenha sucesso
 	 */
 	 
@@ -111,7 +108,6 @@ int delete(int posicao, struct desc_lista *descritor)
 	}
 	else
 	{
-		//descritor->position = descritor->position - 1;	
 		for(i= posicao; i<descritor->position; i++)
 		{
 			descritor->vet[i] = descritor->vet[i+1];
@@ -120,18 +116,41 @@ int delete(int posicao, struct desc_lista *descritor)
 		return 1;
 	}
 }
-int * locate(int chave, struct desc_lista *descritor)
+int *locate(int chave, struct desc_lista *descritor)
 {
 	/*
-	 * Entradas:	Chave		- valor
+	 * Entradas:	chave		- Contendo o valor que se procura
 	 * 				Descritor	- A estrutura por um ponteiro
 	 *
-	 * Função:		?
+	 * Função:		Procura o primeiro valor igual a CHAVE e retorna
+	 * 					o seu através de um ponteiro;
 	 * 
-	 * Saída:
-	 * 				retorna ponteiro para elemento com chave, ou NULL
+	 * Saída:		NULL		- Caso ocorra um erro
+	 * 				Ponteiro	- Caso tenha sucesso
 	 */
-	return 0;
+	int i;
+	int j;
+	j = -1;
+	i=0;
+	
+	while( i < descritor->position)
+	{
+		if( descritor->vet[i] == chave)
+		{
+			printf("ACHOU!\n");
+			j = i;
+			i = descritor->position;
+		}
+		i++;
+	}
+	if( j == 999 )
+	{
+		return NULL;
+	}
+	else
+	{
+		return &descritor->vet[j];
+	}
 }
 unsigned int length(struct desc_lista *descritor)
 {
@@ -140,8 +159,7 @@ unsigned int length(struct desc_lista *descritor)
 	 *
 	 * Função:		Retorna o comprimento da lista
 	 * 
-	 * Saída:
-	 * 				Retorna o comprimento da lista
+	 * Saída:		Retorna o comprimento da lista
 	 */
 	 
 	return descritor->position;

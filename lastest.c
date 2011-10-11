@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	int chave;
 	int retorno;
 	int *ptr;
+	int **ptr1;
 	int posi;
 	unsigned int posicao;
 	desc_lista descritor;
@@ -26,7 +27,7 @@ int main(int argc, char **argv)
 		}while( escolha < 0 && escolha >6);
 		switch(escolha)
 		{
-			case 0: printf("Saindo do programa...");
+			case 0: printf("Saindo do programa...\n");
 					exit(0);
 					break;
 			case 1:
@@ -57,6 +58,7 @@ int main(int argc, char **argv)
 					else
 					{
 						printf("O valor da posição %d é %d\n", posicao, *ptr);
+						printf("O endereço de memoria da posição %d é %p.\n", posicao, ptr);
 					}
 					break;
 			case 3: 
@@ -89,7 +91,18 @@ int main(int argc, char **argv)
 						printf("Ooops! A posição %d não pode ser deletada.\n", posicao);
 					}
 					break;
-			case 5: printf("Locate\n");
+			case 5: system("clear");
+					printf("Lista de Alocação Seguencial - LOCATE\nValor:\n");
+					scanf("%d", &chave);
+					ptr = locate(chave, &descritor);
+					if( ptr == NULL )
+					{
+						printf("O valor não existe na lista.\n");
+					}
+					else
+					{
+						printf("O valor %d está na posição %p.\n", chave, ptr);
+					}
 					break;
 			case 6:
 					system("clear");
