@@ -3,8 +3,8 @@
 
 struct nodo{
 	int chave;
-	struct *nodo prev;
-	struct *nodo next;
+	struct nodo *prev;
+	struct nodo *next;
 };
 
 struct desc_lista{

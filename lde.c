@@ -12,7 +12,7 @@ struct desc_lista *init()
 	 */
 	 
 	 struct desc_lista *descritor;
-	 descritor = (struct desc_lista*) malloc(sizeof(struct desc_lista));
+	 descritor = malloc(sizeof(struct desc_lista));
 	 descritor->head = NULL;
 	 descritor->tail = NULL;
 	 descritor->tamanho = 0;
@@ -45,7 +45,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
-
+	return &descritor->tamanho;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 {
@@ -90,7 +90,7 @@ struct nodo *locate(int chave, struct nodo *de)
 	 * 				NULL		- Se não houver o valor
 	 */
 	 
-	return 0;
+	return &de;
 }
 unsigned int length(struct desc_lista *descritor)
 {
@@ -119,4 +119,3 @@ int print(struct nodo *ptr)
 	 
 	return 0;
 }
-
