@@ -1,10 +1,17 @@
 #ifndef LDE_H 
 #define LDE_H
 
-typedef struct desc_lista{
-	int elemento;
-	int *next;
-}desc_lista;
+struct nodo{
+	int chave;
+	struct *nodo prev;
+	struct *nodo next;
+};
+
+struct desc_lista{
+	struct nodo *head;
+	struct nodo *tail;
+	unsigned int tamanho;
+};
 
 struct desc_lista *init();
 int insert(struct nodo *anterior, int chave, struct desc_lista *descritor);

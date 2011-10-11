@@ -11,7 +11,13 @@ struct desc_lista *init()
 	 * Saída:		Um ponteiro para um descritor de lista
 	 */
 	 
-	return 0;
+	 struct desc_lista *descritor;
+	 descritor = (struct desc_lista*) malloc(sizeof(struct desc_lista));
+	 descritor->head = NULL;
+	 descritor->tail = NULL;
+	 descritor->tamanho = 0;
+	return descritor;
+
 }
 int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 {
@@ -36,10 +42,10 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 *
 	 * Função:		Retorna ponteiro para um nodo da lista de ordem posicao
 	 * 
-	 * Saída:		Ponteiro	- Do Nodo do posicao
+	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
-	return 0;
+
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 {
