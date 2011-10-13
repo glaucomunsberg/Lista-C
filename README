@@ -4,6 +4,7 @@ Versão 0.6
 			Menu de Interação
 		Correção
 			Estrutura da Lista
+			Make compilação dos dois Projetos
 Versão 0.5.1
 		Correções
 			Correção do endereço do ponteiro no get
@@ -38,6 +39,4 @@ Versão 0.1
 		Escolha de Commit/Push
 
 --------Issues & Troubles
-	-> Para a versão 0.6 deve ser criado o inserir, leght e imprimir do trabalho de
-			Lista Duplamente Encadeada
-	-> Como fazer isso?! õ.O
+	-> Criar Inserir e Imprimir
