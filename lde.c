@@ -1,5 +1,6 @@
 #include "lde.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 struct desc_lista *init()
 {
@@ -12,7 +13,7 @@ struct desc_lista *init()
 	 */
 	 
 	 struct desc_lista *descritor;
-	 descritor = malloc(sizeof(struct desc_lista));
+	 descritor = (struct desc_lista*) malloc(sizeof(struct desc_lista));
 	 descritor->head = NULL;
 	 descritor->tail = NULL;
 	 descritor->tamanho = 0;
@@ -32,10 +33,12 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 * Saída:		0	- Se houver erro
 	 * 				1	- Se houver sucesso
 	 */
+	 descritor->tamanho++;
 	return 0;
 }
 struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 {
+	struct nodo *p;
 	/*
 	 * Entradas:	Posicao 	- Ponteiro do elemento anterior
 	 * 				Descritor	- Lista que será trabalha
@@ -45,7 +48,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
-	return &descritor->tamanho;
+	return p;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 {
@@ -78,6 +81,7 @@ int delete(struct nodo *ptr, struct desc_lista *descritor)
 }
 struct nodo *locate(int chave, struct nodo *de)
 {	
+	struct nodo *p;
 	/*
 	 * Entradas:	Chave 		- Valor de um nodo
 	 * 				Descritor	- Lista que será trabalha
@@ -90,7 +94,7 @@ struct nodo *locate(int chave, struct nodo *de)
 	 * 				NULL		- Se não houver o valor
 	 */
 	 
-	return &de;
+	return p;
 }
 unsigned int length(struct desc_lista *descritor)
 {
@@ -101,8 +105,7 @@ unsigned int length(struct desc_lista *descritor)
 	 * 
 	 * Saída:		Comprimento
 	 */
-	 
-	return 0;
+	return descritor->tamanho;
 }
 int print(struct nodo *ptr)
 {

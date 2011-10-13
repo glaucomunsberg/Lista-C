@@ -1,3 +1,8 @@
+Versão 0.6.1
+		Introdução
+			length
+		Correções
+			De retorno do nodo
 Versão 0.6
 		Introdução
 			Corpo das funções (top-down)
@@ -11,6 +16,7 @@ Versão 0.5.1
 		Introdução
 			Nova Interface ao automático
 			Locate
+			Length
 Versão 0.5
 		Correções
 			Inserir

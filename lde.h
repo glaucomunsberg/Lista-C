@@ -10,7 +10,7 @@ struct nodo{
 struct desc_lista{
 	struct nodo *head;
 	struct nodo *tail;
-	unsigned int tamanho;
+	int tamanho;
 };
 
 struct desc_lista *init();

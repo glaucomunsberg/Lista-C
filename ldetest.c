@@ -13,10 +13,10 @@ int main(int argc, char **argv)
 	int posi;
 	unsigned int posicao;
 	struct desc_lista descritor;
-	descritor.tamanho = 0;
+	//descritor.tamanho = 0;
 	
 	//-------------------------------------
-	
+	descritor = *init();
 	for(;;)
 	{
 		printf("Lista Duplamente Encadeada\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Length\n7.Imprimir\n0.Sair\nESCOLHA:");
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 					scanf("%d", &posicao);
 					printf("Valor:\n");
 					scanf("%d", &chave);
-					//retorno  = insert(posicao, chave, &descritor);
+					retorno  = insert(&ptr, chave, &descritor);
 					if( retorno == 1)
 					{
 						printf("O valor foi inserido com sucesso.\n");
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
 			case 6:
 					system("clear");
 					printf("Lista de Alocação Seguencial - LENGTH\n");
-					//retorno = length( &descritor);
+					retorno = length( &descritor);
 					printf("A Lista tem comprimento %d\n", retorno);
 					break;
 			case 7: //imprimir( &descritor);
