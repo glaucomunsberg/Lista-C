@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 					{
 						printf("		O valor foi inserido com sucesso!\n");
 						//teste
-						printf("		HEAD: %p\n		TAIL: %p\n		Valor:%d", descritor.head,descritor.tail,descritor.head->chave);
+						printf("		HEAD: %p\n		TAIL: %p\nTAMANHO: %d", descritor.head,descritor.tail,descritor.tamanho);
 					}
 					else
 					{
@@ -109,9 +109,15 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 7: 
+					printf("NEXT: %p", NODO->next);
+					retorno = print(NODO);
+					if( retorno == 0)
+					{
+						printf("		O nodo não pode ser imprimido\n");
+					}
+					getchar();getchar();
 					break;
 			case 8:
-					printf("Imprimir");
 					imprimir(&descritor);
 					getchar();getchar();
 					break;
@@ -125,11 +131,34 @@ void imprimir(struct desc_lista *descritor)
 {
 	if(descritor->head == NULL)
 	{
-		printf("Não tem nada no vetor!\n");
+		printf("\n\n		%p head<-Lista \n", descritor->head);
+		printf("			NO NODO\n");
+		printf("	    		    Lista->Tail %p\n", descritor->tail);
 	}
 	else
 	{
-		printf("Tem algo aqui e ainda não implementei a impressão!");
+		printf("\n\n		%p head<-Lista \n", descritor->head);
+		struct nodo *temp;
+		temp = malloc(sizeof(struct nodo));
+		temp = descritor->head;
+		if( temp->next == NULL)
+		{
+			printf("\n		    %p Prev<-Nodo \n", temp->prev);
+			printf("			       %d\n", temp->chave);
+			printf("	   	 	   	Nodo->Next %p\n\n", temp->next);
+		}
+		else
+		{
+			while(temp->next != NULL)
+			{
+				printf("\n		%p Prev<-Nodo \n", temp->prev);
+				printf("			  %d\n", temp->chave);
+				printf("	    	   	Nodo->Next %p\n\n", temp->next);
+				temp = temp->next;
+			}
+		}
+		printf("	    		        Lista->Tail %p\n", descritor->tail);
+		free(temp);
 	}
 }
 

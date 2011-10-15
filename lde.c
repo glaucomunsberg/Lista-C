@@ -53,7 +53,7 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 novo->chave = chave;
 	 if( anterior == NULL)
 	 {
-		 printf("ANTERIOR é NULO!n");
+		 printf("Anterior é nulo!n");
 		 //Se não houver nada na estrutura
 		 novo->prev = NULL;
 		 novo->next = NULL;
@@ -63,32 +63,39 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 			 printf("Nao tem nada e é novo!\n");
 			 //Se não houver nada e não for nova a estrutura
 			 descritor->tail = novo;
+			 descritor->tamanho++;
 		 }
 		 else
 		 {
 			 printf("Nao tem nada e não é novo!\n");
 			 novo->next->prev = novo;
+			 descritor->tamanho++;
 		 }
 	 }
 	 else
 	 {
+		 printf("Inserido no meio!\n");
+		 
 		 novo->next = anterior->next;
 		 novo->prev = anterior;
 		 anterior->next = novo;
 		 if(novo->next == NULL)
 		 {
 			 //Se for no fim
-			 printf("esta no fim");
+			 printf("esta no fim\n");
 			 descritor->tail = novo;
+			 descritor->tamanho++;
+			 printf("ANT->PRE %p\nANT->NEX %p\nNOV->PRE %p\nNOVO->NEX %p", anterior->prev, anterior->next, novo->prev, novo->next);
 		 }
 		 else
 		 {
 			 //Se for no meio
 			 printf("esta no meio!");
 			 novo->next->prev = novo;
+			 descritor->tamanho++;
 		 }
 	 }
-	 descritor->tamanho++;
+	 ;
 	return 1;
 }
 struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
@@ -103,6 +110,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
+	 
 	struct nodo *temp;
 	temp = malloc(sizeof(struct nodo));
 	if(descritor->head == NULL)
@@ -112,7 +120,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	}
 	else
 	{
-		printf("FLAG!");
+		printf("FLAG!\n");
 		temp->prev = descritor->head->prev;
 		temp->next = descritor->head->next;
 		temp->chave = descritor->head->chave;
@@ -126,19 +134,18 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 			else
 			{
 				printf("Uma não tem o valor!");
-				free(temp);
 				return NULL;
 			}
 		}
 		else
 		{
+			printf("NOOOO");
 			while(temp->next != NULL )
 			{
 				printf("Procurando...");
 				if(temp->chave == posicao)
 				{
 					printf("ACHOU O VALOR! E é %d\n", temp->chave);
-					free(temp);
 					return temp;
 				}
 				else
@@ -148,7 +155,6 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 			}
 		}
 	}
-	free(temp);
 	return NULL;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
@@ -235,5 +241,16 @@ int print(struct nodo *ptr)
 	 * 				1 - Caso não haja erros
 	 */
 	 
+	 if(ptr == NULL)
+	 {
+		 return 0;
+	 }
+	 else
+	 {
+		 printf("\n\n		%p<-Prev.NODO\n",ptr->prev);
+		 printf("			    NODO = %d\n",ptr->chave);
+		 printf("			    NODO->Next %p\n", ptr->next);
+		 return 1;
+	 }
 	return 0;
 }

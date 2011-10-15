@@ -1,3 +1,11 @@
+Versão 0.7
+		Introdução
+			Imprimir Nodo
+		Correções
+			Menu corrigido
+			Imprimir retorno não maquiado
+			Inserir corrigido na inserção no meio
+
 Versão 0.6.2
 		Introdução
 			Set
@@ -61,4 +69,4 @@ Versão 0.1
 		Escolha de Commit/Push
 
 --------Issues & Troubles
-	-> Possível erro no INSERIR
+	-> Inserir com erro
