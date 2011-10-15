@@ -129,7 +129,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 			if(temp->chave == posicao)
 			{
 				printf("Primeira posicao!");
-				return temp;
+				return descritor->head;
 			}
 			else
 			{
@@ -139,14 +139,21 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 		}
 		else
 		{
-			printf("NOOOO");
-			while(temp->next != NULL )
+			for(;;)
 			{
-				printf("Procurando...");
+				printf("Procurando...\n");
 				if(temp->chave == posicao)
 				{
 					printf("ACHOU O VALOR! E é %d\n", temp->chave);
-					return temp;
+					/*
+					 * Temp é uma identificador temporário
+					 * 	e seu indereço não pode ser passado
+					 * 	então tem recebe o próximo e o 
+					 * 	próximo assinala qual é o anterior
+					 * 	para ser passado como nodo correto.
+					 */
+					 temp = temp->next;
+					 return temp->prev;
 				}
 				else
 				{

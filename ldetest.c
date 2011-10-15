@@ -41,25 +41,25 @@ int main(int argc, char **argv)
 		do
 		{
 			scanf("%d",&escolha);
-		}while( escolha < 0 && escolha >8);
+		}while( escolha < 0 || escolha >8);
 		switch(escolha)
 		{
 			case 0: printf("\n\nSaindo do programa...\n\n");
 					exit(0);
 					break;
 			case 1:
-					printf("\n\nValor:\n");
+					printf("\n\n		Valor:");
 					scanf("%d", &chave);
 					retorno  = insert(NODO, chave, &descritor);
 					if( retorno == 1)
 					{
 						printf("		O valor foi inserido com sucesso!\n");
-						//teste
-						printf("		HEAD: %p\n		TAIL: %p\nTAMANHO: %d", descritor.head,descritor.tail,descritor.tamanho);
+						//-----------------teste
+						printf("		HEAD: %p\n		TAIL: %p\n	TAMANHO: %d", descritor.head,descritor.tail,descritor.tamanho);
 					}
 					else
 					{
-						printf("Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
+						printf("		Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
 					getchar();getchar();
 					break;
@@ -75,7 +75,9 @@ int main(int argc, char **argv)
 					{
 						printf("		Retornou.\n");
 						//--teste
-						printf("Valor %i", NODO->chave);
+						printf("Valor %i\n", NODO->chave);
+						printf("NODO %p\n", NODO);
+						printf("NODO->NEXT %p\n", NODO->next);
 					}
 					getchar();getchar();
 					break;
@@ -121,7 +123,7 @@ int main(int argc, char **argv)
 					imprimir(&descritor);
 					getchar();getchar();
 					break;
-			default: printf("Ooops! Você não deveria estar aqui! o.O"); exit(0);
+			default: printf("		Ooops! Você não deveria estar aqui! o.O"); exit(0);
 		}
 		
 	}
