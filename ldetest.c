@@ -1,3 +1,17 @@
+/* Autoria:
+ * 
+ * 		Universidade Federal de Pelotas
+ * 		Centro de Desenvolvimento Tecnologico
+ * 		Bacharelado em Ciência da Computação
+ * 		Glauco Roberto Munsberg dos Santos
+ * 			glaucomunsberg@gmail.com		
+ * 
+ * Sobre o Projeto:
+ * 		Trabalho desenvolvido como avaliação de Estrutura de Dados 1
+ * 		Para maiores informações sobre o projeto,
+ * 		ele se encontra disponível pelo endereço http://github.com/glaucomunsberg/PHP
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "lde.h"
@@ -16,7 +30,7 @@ int main(int argc, char **argv)
 	
 	struct desc_lista descritor;
 	struct nodo *NODO;
-
+	NODO = NULL;
 	descritor.tamanho = 0;
 	//-------------------------------------
 	descritor = *init();
@@ -39,7 +53,9 @@ int main(int argc, char **argv)
 					retorno  = insert(NODO, chave, &descritor);
 					if( retorno == 1)
 					{
-						printf("O valor foi inserido com sucesso!\n");
+						printf("		O valor foi inserido com sucesso!\n");
+						//teste
+						printf("		HEAD: %p\n		TAIL: %p\n		Valor:%d", descritor.head,descritor.tail,descritor.head->chave);
 					}
 					else
 					{
@@ -53,17 +69,44 @@ int main(int argc, char **argv)
 					NODO = get(posicao, &descritor);
 					if( NODO == NULL)
 					{
-						printf("Não retornou nada!");
+						printf("		Não retornou nada!\n");
+					}
+					else
+					{
+						printf("		Retornou.\n");
+						//--teste
+						printf("Valor %i", NODO->chave);
 					}
 					getchar();getchar();
 					break;
 			case 3: 
+					if(NODO == NULL)
+					{
+						printf("	O nodo não foi escolhido!\n");
+					}
+					else
+					{
+						scanf("%d", &chave);
+						retorno = set(NODO,&chave,&descritor);
+						if(retorno == 1)
+						{
+							printf("		O valor foi alterado com sucesso.\n");
+						}
+						else
+						{
+							printf("		O valor não pode ser trocado por causa de um erro.\n");
+						}
+					}
+					getchar();getchar();
 					break;
 			case 4: 
 					break;
 			case 5: 
 					break;
 			case 6:
+					retorno = length(&descritor);
+					printf("\n\n		O tamanho da lista é de %d\n", retorno);
+					getchar();getchar();
 					break;
 			case 7: 
 					break;

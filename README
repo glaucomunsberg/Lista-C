@@ -1,9 +1,20 @@
+Versão 0.6.2
+		Introdução
+			Set
+			Delete
+		Correções
+			Menu com implementação de interface de funções retroativas
+			Liberação de memoria temporária Free()
+			Inserir correção no ponteiro
+			Get retorno não maquiado
+			
 Versão 0.6.1
 		Introdução
+			Init
 			Length
 			Inserir
-			Imprimir Lista
-			Get
+			Imprimir Lista [Maquiado]
+			Get [Maquiado]
 		Correções
 			Makefile adaptado
 			Automatico.sh correções de logica
@@ -50,5 +61,4 @@ Versão 0.1
 		Escolha de Commit/Push
 
 --------Issues & Troubles
-	-> Criar Inserir e Imprimir
-	-> Make: Problema no make! Removido o all e projeto LAS
+	-> Possível erro no INSERIR

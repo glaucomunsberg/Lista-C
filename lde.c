@@ -60,12 +60,13 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 		 descritor->head = novo;
 		 if( descritor->tail == NULL)
 		 {
-			 printf("Noa tem nada e não é novo!\n");
+			 printf("Nao tem nada e é novo!\n");
 			 //Se não houver nada e não for nova a estrutura
 			 descritor->tail = novo;
 		 }
 		 else
 		 {
+			 printf("Nao tem nada e não é novo!\n");
 			 novo->next->prev = novo;
 		 }
 	 }
@@ -88,14 +89,13 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 		 }
 	 }
 	 descritor->tamanho++;
-	 printf("TESTE: Descritor->Head %p\n Descritor->Tail %p\n Descritor->Tamanho %d\n", descritor->head, descritor->tail, descritor->tamanho);
 	return 1;
 }
 struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 {
 	
 	/*
-	 * Entradas:	Posicao 	- Ponteiro do elemento anterior
+	 * Entradas:	Posicao 	- Posicao
 	 * 				Descritor	- Lista que será trabalha
 	 *
 	 * Função:		Retorna ponteiro para um nodo da lista de ordem posicao
@@ -103,13 +103,53 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
-	struct nodo *p;
+	struct nodo *temp;
+	temp = malloc(sizeof(struct nodo));
 	if(descritor->head == NULL)
 	{
-		printf("não tem nada");
+		printf("Não tem nada na lista!");
 		return NULL;
 	}
-	return p;
+	else
+	{
+		printf("FLAG!");
+		temp->prev = descritor->head->prev;
+		temp->next = descritor->head->next;
+		temp->chave = descritor->head->chave;
+		if( temp->next == NULL)
+		{
+			if(temp->chave == posicao)
+			{
+				printf("Primeira posicao!");
+				return temp;
+			}
+			else
+			{
+				printf("Uma não tem o valor!");
+				free(temp);
+				return NULL;
+			}
+		}
+		else
+		{
+			while(temp->next != NULL )
+			{
+				printf("Procurando...");
+				if(temp->chave == posicao)
+				{
+					printf("ACHOU O VALOR! E é %d\n", temp->chave);
+					free(temp);
+					return temp;
+				}
+				else
+				{
+					temp = temp->next;
+				}
+			}
+		}
+	}
+	free(temp);
+	return NULL;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 {
@@ -123,8 +163,18 @@ int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 	 * Saída:		0	- Em caso de erro
 	 * 				1	- Em caso de sucesso
 	 */
-	 
-	return 0;
+	 struct nodo *temp;
+	 temp = malloc(sizeof(struct nodo));
+	 temp->chave = *x;
+	 ptr->chave = temp->chave;
+
+	 if( temp->chave != ptr->chave)
+	 {
+		 free(temp);
+		 return 0;
+	 }
+	 free(temp);
+	return 1;
 }
 int delete(struct nodo *ptr, struct desc_lista *descritor)
 {
@@ -170,7 +220,6 @@ unsigned int length(struct desc_lista *descritor)
 	 * 
 	 * Saída:		Comprimento
 	 */
-	 printf("AQUUUUI!\n");
 	return descritor->tamanho;
 }
 int print(struct nodo *ptr)
