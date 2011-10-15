@@ -1,29 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lde.h"
+
+void imprimir(struct desc_lista *descritor);
 int main(int argc, char **argv)
 {
-	//-------------------------------------
+	//Identificadores e Atribuições----------
 	
 	int escolha;
 	int chave;
-	int retorno;
+	unsigned int retorno;
 	int *ptr;
-	struct nodo NODO;
 	int posi;
 	unsigned int posicao;
-	struct desc_lista descritor;
-	//descritor.tamanho = 0;
 	
+	struct desc_lista descritor;
+	struct nodo *NODO;
+
+	descritor.tamanho = 0;
 	//-------------------------------------
 	descritor = *init();
 	for(;;)
 	{
-		printf("Lista Duplamente Encadeada\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Length\n7.Imprimir\n0.Sair\nESCOLHA:");
+		system("clear");
+		printf("Lista Duplamente Encadeada\n	1.Insert\n	2.get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir nodo\n	8.Imprimir Lista\n	0.Sair\nESCOLHA: ");
 		do
 		{
 			scanf("%d",&escolha);
-		}while( escolha < 0 && escolha >6);
+		}while( escolha < 0 && escolha >8);
 		switch(escolha)
 		{
 			case 0: printf("\n\nSaindo do programa...\n\n");
@@ -32,86 +36,57 @@ int main(int argc, char **argv)
 			case 1:
 					printf("\n\nValor:\n");
 					scanf("%d", &chave);
-					retorno  = insert(&NODO, chave, &descritor);
+					retorno  = insert(NODO, chave, &descritor);
 					if( retorno == 1)
 					{
-						printf("O valor foi inserido com sucesso.\n");
+						printf("O valor foi inserido com sucesso!\n");
 					}
 					else
 					{
 						printf("Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
+					getchar();getchar();
 					break;
 			case 2: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - GET\nPosição:\n");
-					scanf("%d", &posicao);
-					//ptr = get(posicao, &descritor);
-					if( ptr == NULL)
+					printf("\n\nPosição: ");
+					scanf("%d",&posicao);
+					NODO = get(posicao, &descritor);
+					if( NODO == NULL)
 					{
-						printf("Ooops! A posição %d não pode ser acessada.\n", posicao);
+						printf("Não retornou nada!");
 					}
-					else
-					{
-						printf("O valor da posição %d é %d\n", posicao, *ptr);
-						printf("O endereço de memoria da posição %d é %p.\n", posicao, ptr);
-					}
+					getchar();getchar();
 					break;
 			case 3: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - SET\nPosição:\n");
-					scanf("%d",&posi);
-					printf("Valor:\n");
-					scanf("%d", &chave);
-					//retorno = set(posi, chave, &descritor);
-					if(retorno == 1)
-					{
-						printf("O valor foi inserido com sucesso.\n");
-					}
-					else
-					{
-						printf("Ooops! O valor %d não pode ser inserido na posição %d", chave, posicao);
-					}
 					break;
 			case 4: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - DELETE\nPosição:\n");
-					scanf("%d", &posicao);
-					//retorno = delete(posicao, &descritor);
-					if( retorno == 1)
-					{
-						printf("O valor foi deletado com sucesso.\n");
-					}
-					else
-					{
-						printf("Ooops! A posição %d não pode ser deletada.\n", posicao);
-					}
 					break;
-			case 5: system("clear");
-					printf("Lista de Alocação Seguencial - LOCATE\nValor:\n");
-					scanf("%d", &chave);
-					//ptr = locate(chave, &descritor);
-					if( ptr == NULL )
-					{
-						printf("O valor não existe na lista.\n");
-					}
-					else
-					{
-						printf("O valor %d está na posição %p.\n", chave, ptr);
-					}
+			case 5: 
 					break;
 			case 6:
-					system("clear");
-					printf("Lista de Alocação Seguencial - LENGTH\n");
-					retorno = length( &descritor);
-					printf("A Lista tem comprimento %d\n", retorno);
 					break;
-			case 7: //imprimir( &descritor);
+			case 7: 
+					break;
+			case 8:
+					printf("Imprimir");
+					imprimir(&descritor);
+					getchar();getchar();
 					break;
 			default: printf("Ooops! Você não deveria estar aqui! o.O"); exit(0);
 		}
 		
 	}
 	return 0;
+}
+void imprimir(struct desc_lista *descritor)
+{
+	if(descritor->head == NULL)
+	{
+		printf("Não tem nada no vetor!\n");
+	}
+	else
+	{
+		printf("Tem algo aqui e ainda não implementei a impressão!");
+	}
 }
 

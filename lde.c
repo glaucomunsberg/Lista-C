@@ -53,12 +53,14 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 novo->chave = chave;
 	 if( anterior == NULL)
 	 {
+		 printf("ANTERIOR é NULO!n");
 		 //Se não houver nada na estrutura
 		 novo->prev = NULL;
 		 novo->next = NULL;
 		 descritor->head = novo;
 		 if( descritor->tail == NULL)
 		 {
+			 printf("Noa tem nada e não é novo!\n");
 			 //Se não houver nada e não for nova a estrutura
 			 descritor->tail = novo;
 		 }
@@ -75,20 +77,23 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 		 if(novo->next == NULL)
 		 {
 			 //Se for no fim
+			 printf("esta no fim");
 			 descritor->tail = novo;
 		 }
 		 else
 		 {
 			 //Se for no meio
+			 printf("esta no meio!");
 			 novo->next->prev = novo;
 		 }
 	 }
 	 descritor->tamanho++;
+	 printf("TESTE: Descritor->Head %p\n Descritor->Tail %p\n Descritor->Tamanho %d\n", descritor->head, descritor->tail, descritor->tamanho);
 	return 1;
 }
 struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 {
-	struct nodo *p;
+	
 	/*
 	 * Entradas:	Posicao 	- Ponteiro do elemento anterior
 	 * 				Descritor	- Lista que será trabalha
@@ -98,6 +103,12 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 * Saída:		descritor	- Do Nodo do posicao
 	 * 				NULL		- Em caso de erro
 	 */
+	struct nodo *p;
+	if(descritor->head == NULL)
+	{
+		printf("não tem nada");
+		return NULL;
+	}
 	return p;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
@@ -117,21 +128,26 @@ int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 }
 int delete(struct nodo *ptr, struct desc_lista *descritor)
 {
-	/*
-	 * Entradas:	Ptr 		- Ponteiro do nodo
-	 * 				Descritor	- Lista que será trabalha
-	 *
-	 * Função:		Apaga elemento apontado por ptr
-	 * 
-	 * Saída:		0	- Em caso de erro
-	 * 				1	- Em caso de sucesso
-	 */
-	 
+	if(descritor->tail == ptr)
+	{
+		descritor->tail = ptr->prev;
+	}
+	else
+	{
+		ptr->next->prev = ptr->prev;
+		if( descritor->head = ptr)
+		{
+			descritor->head = ptr->next;
+		}
+		else
+		{
+			ptr->prev->next = ptr->next;
+		}
+	}
 	return 0;
 }
 struct nodo *locate(int chave, struct nodo *de)
 {	
-	struct nodo *p;
 	/*
 	 * Entradas:	Chave 		- Valor de um nodo
 	 * 				Descritor	- Lista que será trabalha
@@ -143,8 +159,7 @@ struct nodo *locate(int chave, struct nodo *de)
 	 * Saída:		Ponteiro	- Valor onde se encontra a chave
 	 * 				NULL		- Se não houver o valor
 	 */
-	 
-	return p;
+
 }
 unsigned int length(struct desc_lista *descritor)
 {
@@ -155,6 +170,7 @@ unsigned int length(struct desc_lista *descritor)
 	 * 
 	 * Saída:		Comprimento
 	 */
+	 printf("AQUUUUI!\n");
 	return descritor->tamanho;
 }
 int print(struct nodo *ptr)
