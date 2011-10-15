@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	int chave;
 	int retorno;
 	int *ptr;
-	int **ptr1;
+	struct nodo NODO;
 	int posi;
 	unsigned int posicao;
 	struct desc_lista descritor;
@@ -26,16 +26,13 @@ int main(int argc, char **argv)
 		}while( escolha < 0 && escolha >6);
 		switch(escolha)
 		{
-			case 0: printf("Saindo do programa...\n");
+			case 0: printf("\n\nSaindo do programa...\n\n");
 					exit(0);
 					break;
 			case 1:
-					system("clear");
-					printf("Lista de Alocação Seguencial - INSERT\nPosição:\n");
-					scanf("%d", &posicao);
-					printf("Valor:\n");
+					printf("\n\nValor:\n");
 					scanf("%d", &chave);
-					retorno  = insert(&ptr, chave, &descritor);
+					retorno  = insert(&NODO, chave, &descritor);
 					if( retorno == 1)
 					{
 						printf("O valor foi inserido com sucesso.\n");

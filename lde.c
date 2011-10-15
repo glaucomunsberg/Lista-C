@@ -33,8 +33,58 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 * Saída:		0	- Se houver erro
 	 * 				1	- Se houver sucesso
 	 */
+	 
+	 //----Testes de verificaçõs--------------------------
+	 
+	 if(descritor == NULL)
+	 {
+		 printf("Ooops! O descritor é nulo!\n");
+		 return 0;		 
+	 }
+	 struct nodo *novo;
+	 novo = (struct nodo *) malloc(sizeof(struct nodo));
+	 if( novo == NULL)
+	 {
+		 printf("Ooops! Socorro! Malloc retornou NULL!");
+		 return 0;
+	 }
+	 	 
+	 //---------------------------------------------------
+	 novo->chave = chave;
+	 if( anterior == NULL)
+	 {
+		 //Se não houver nada na estrutura
+		 novo->prev = NULL;
+		 novo->next = NULL;
+		 descritor->head = novo;
+		 if( descritor->tail == NULL)
+		 {
+			 //Se não houver nada e não for nova a estrutura
+			 descritor->tail = novo;
+		 }
+		 else
+		 {
+			 novo->next->prev = novo;
+		 }
+	 }
+	 else
+	 {
+		 novo->next = anterior->next;
+		 novo->prev = anterior;
+		 anterior->next = novo;
+		 if(novo->next == NULL)
+		 {
+			 //Se for no fim
+			 descritor->tail = novo;
+		 }
+		 else
+		 {
+			 //Se for no meio
+			 novo->next->prev = novo;
+		 }
+	 }
 	 descritor->tamanho++;
-	return 0;
+	return 1;
 }
 struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 {
@@ -56,7 +106,7 @@ int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 	 * Entradas:	Ptr 		- Ponteiro do nodo
 	 * 				X			- O valor que deve ser inserido
 	 * 				Descritor	- Lista que será trabalha
-	 *
+	 *Ooops! 
 	 * Função:		troca conteúdo do elemento apontado por ptr
 	 * 
 	 * Saída:		0	- Em caso de erro
