@@ -126,14 +126,14 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	struct nodo *temp;
 	temp = malloc(sizeof(struct nodo));
 	int i;
-	if( posicao > descritor->tamanho)
+	if( posicao >= descritor->tamanho)
 	{
 		return 0;
 	}
 	else
 	{
 		temp = descritor->head; 
-		for(i = 1; i<= posicao;i++)
+		for(i = 0; i<= posicao;i++)
 		{
 			printf("vai roda..\n");
 			if( i == posicao)
@@ -186,7 +186,7 @@ int delete(struct nodo *ptr, struct desc_lista *descritor)
 	 * Função:		Remove o prt (NODO) da estrutura
 	 * 
 	 * Saída:		0 - Se houver um erro
-	 * 				1 - Se não houver erros
+	 * 				1 - Se não houver erro
 	 */
 	 
 	if(descritor->tail == ptr)

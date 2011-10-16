@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	for(;;)
 	{
 		system("clear");
-		printf("Lista de Alocação Seguencial\n	1.Insert\n	2.get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir\n	0.Sair\nESCOLHA:");
+		printf("Lista de Alocação Seguencial\n	1.Insert\n	2.Get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir\n	0.Sair\nESCOLHA: ");
 		do
 		{
 			scanf("%d",&escolha);
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 					//--Insert
 					printf("\n			Posição: ");
 					scanf("%d", &posicao);
-					printf("			Valor: ");
+					printf("			Valor  : ");
 					scanf("%d", &chave);
 					retorno  = insert(posicao, chave, &descritor);
 					if( retorno == 1)
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 					//--Set
 					printf("\n		Posição: ");
 					scanf("%d",&posi);
-					printf("\n		Valor: ");
+					printf("\n		Valor  : ");
 					scanf("%d", &chave);
 					retorno = set(posi, chave, &descritor);
 					if(retorno == 1)
@@ -169,7 +169,7 @@ void imprimir(struct desc_lista *descritor)
 	}
 	else
 	{
-		printf("Vetor: [NULL]\n");
+		printf("		Vetor: [NULL]\n");
 	}
 	
 }

@@ -9,7 +9,7 @@
  * Sobre o Projeto:
  * 		Trabalho desenvolvido como avaliação de Estrutura de Dados 1
  * 		Para maiores informações sobre o projeto,
- * 		ele se encontra disponível pelo endereço http://github.com/glaucomunsberg/PHP
+ * 		ele se encontra disponível no endereço http://github.com/glaucomunsberg/PHP
  */
 
 #include <stdio.h>

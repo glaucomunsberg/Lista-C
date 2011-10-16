@@ -57,7 +57,7 @@ int *get(unsigned int posicao, struct desc_lista *descritor)
 	 * 				Ponteiro	- Caso tenha sucesso
 	 */
 	 
-	if(posicao >= descritor->position || posicao < 0)
+	if(posicao > descritor->position || posicao < 0)
 	{
 		return NULL;
 	}
@@ -129,7 +129,6 @@ int *locate(int chave, struct desc_lista *descritor)
 	 * Saída:		NULL		- Caso ocorra um erro
 	 * 				Ponteiro	- Caso tenha sucesso
 	 */
-	 
 	int i;
 	int j;
 	i=0;
