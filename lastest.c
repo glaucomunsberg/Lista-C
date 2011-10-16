@@ -35,99 +35,112 @@ int main(int argc, char **argv)
 	
 	for(;;)
 	{
-		printf("Lista de Alocação Seguencial\n1.Insert\n2.get\n3.set\n4.Delete\n5.Locate\n6.Length\n7.Imprimir\n0.Sair\nESCOLHA:");
+		system("clear");
+		printf("Lista de Alocação Seguencial\n	1.Insert\n	2.get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir\n	0.Sair\nESCOLHA:");
 		do
 		{
 			scanf("%d",&escolha);
-		}while( escolha < 0 && escolha >6);
+		}while( escolha < 0 || escolha > 7);
 		switch(escolha)
 		{
-			case 0: printf("Saindo do programa...\n");
+			case 0: printf("		Saindo do programa...\n");
 					exit(0);
 					break;
 			case 1:
-					system("clear");
-					printf("Lista de Alocação Seguencial - INSERT\nPosição:\n");
+					//--Insert
+					printf("\n			Posição: ");
 					scanf("%d", &posicao);
-					printf("Valor:\n");
+					printf("			Valor: ");
 					scanf("%d", &chave);
 					retorno  = insert(posicao, chave, &descritor);
 					if( retorno == 1)
 					{
-						printf("O valor foi inserido com sucesso.\n");
+						printf("\n		O valor foi inserido com sucesso.\n");
 					}
 					else
 					{
-						printf("Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
+						printf("		O valor %d não pode ser inserido na posição %d.\n", chave, posicao);
 					}
+					getchar();getchar();
 					break;
 			case 2: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - GET\nPosição:\n");
+					//--Get
+					printf("\n		Posição: ");
 					scanf("%d", &posicao);
 					ptr = get(posicao, &descritor);
 					if( ptr == NULL)
 					{
-						printf("Ooops! A posição %d não pode ser acessada.\n", posicao);
+						printf("\n		A posição %d não pode ser acessada.\n", posicao);
 					}
 					else
 					{
-						printf("O valor da posição %d é %d\n", posicao, *ptr);
-						printf("O endereço de memoria da posição %d é %p.\n", posicao, ptr);
+						printf("\n		O valor da posição %d é %d.\n", posicao, *ptr);
+						printf("\n		O endereço de memoria da posição %d é %p.\n", posicao, ptr);
 					}
+					getchar();getchar();
 					break;
 			case 3: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - SET\nPosição:\n");
+					//--Set
+					printf("\n		Posição: ");
 					scanf("%d",&posi);
-					printf("Valor:\n");
+					printf("\n		Valor: ");
 					scanf("%d", &chave);
 					retorno = set(posi, chave, &descritor);
 					if(retorno == 1)
 					{
-						printf("O valor foi inserido com sucesso.\n");
+						printf("\n		O valor foi inserido com sucesso.\n");
 					}
 					else
 					{
-						printf("Ooops! O valor %d não pode ser inserido na posição %d", chave, posicao);
+						printf("\n		Ooops! O valor %d não pode ser inserido na posição %d", chave, posicao);
 					}
+					getchar();getchar();
 					break;
 			case 4: 
-					system("clear");
-					printf("Lista de Alocação Seguencial - DELETE\nPosição:\n");
+					//--Delete
+					printf("\n		Posição: ");
 					scanf("%d", &posicao);
 					retorno = delete(posicao, &descritor);
 					if( retorno == 1)
 					{
-						printf("O valor foi deletado com sucesso.\n");
+						printf("\n		O valor foi deletado com sucesso.\n");
 					}
 					else
 					{
-						printf("Ooops! A posição %d não pode ser deletada.\n", posicao);
+						printf("\n		A posição %d não pode ser deletada.\n", posicao);
 					}
+					getchar();getchar();
 					break;
-			case 5: system("clear");
-					printf("Lista de Alocação Seguencial - LOCATE\nValor:\n");
+			case 5: 
+					//--Locate
+					printf("\n		Valor: ");
 					scanf("%d", &chave);
 					ptr = locate(chave, &descritor);
 					if( ptr == NULL )
 					{
-						printf("O valor não existe na lista.\n");
+						printf("\n		O valor não existe na lista.\n");
 					}
 					else
 					{
-						printf("O valor %d está na posição %p.\n", chave, ptr);
+						printf("\n		O valor %d está na posição %p.\n", chave, ptr);
 					}
+					getchar();getchar();
 					break;
 			case 6:
-					system("clear");
-					printf("Lista de Alocação Seguencial - LENGTH\n");
+					//--Length
 					retorno = length( &descritor);
-					printf("A Lista tem comprimento %d\n", retorno);
+					printf("\n		A Lista tem comprimento %d\n", retorno);
+					getchar();getchar();
 					break;
-			case 7: imprimir( &descritor);
+			case 7: 
+					//--Imprimir
+					imprimir( &descritor);
+					getchar();getchar();
 					break;
-			default: printf("Ooops! Você não deveria estar aqui! o.O"); exit(0);
+			default:
+					//--Exit
+					printf("Ooops! Você não deveria estar aqui! o.O\n"); 
+					exit(0);
 		}
 		
 	}
@@ -136,12 +149,11 @@ int main(int argc, char **argv)
 
 void imprimir(struct desc_lista *descritor)
 {
-	system("clear");
-	printf("Lista de Alocação Seguencial - IMPRIMIR\n");
+	printf("\n");
 	int i;
 	if(descritor->position != 0)
 	{
-		printf("Vetor: [");
+		printf("Lista: [");
 		for(i=0; i<descritor->position;i++)
 		{
 			if(i+1 != descritor->position)

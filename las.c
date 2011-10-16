@@ -16,17 +16,18 @@ int insert(unsigned int posicao, int chave, struct desc_lista *descritor)
 	 * 				0	- Se houver erro
 	 * 				1	- Se não houver erro
 	 */
+	 
 	int i;
 	if(descritor->position >= MAX)
 	{
-		printf("Ooops! Lista cheia\n");
+		printf("\n		Ooops! Lista cheia\n");
 		return 0;
 	}
 	else
 	{
 		if(posicao > descritor->position || posicao < 0 )
 		{
-			printf("Ooops! Posição Inexistente\n");
+			printf("\n		Ooops! Posição Inexistente\n");
 			return 0;
 		}
 		else
@@ -137,7 +138,6 @@ int *locate(int chave, struct desc_lista *descritor)
 	{
 		if( descritor->vet[i] == chave)
 		{
-			printf("ACHOU!\n");
 			j = i;
 			i = descritor->position;
 		}

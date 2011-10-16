@@ -2,6 +2,7 @@ Versão 0.8.2
 		Correções
 			Issolada a função DELETE
 			Remoção de arquivos *.*~
+			Interface aprimorada (LSA)
 Versão 0.8.1
 		Introdução
 			Locate
@@ -61,6 +62,9 @@ Versão 0.5.1
 			Nova Interface ao automático
 			Locate
 			Length
+		Nota: Implementada todas as funções ligadas a Lista de Alocação Seguêncial(LSA),
+				a partir dessa versão será apenas implementada e desenvolvida a 
+				lista dulpamente encadeada(LDE); Possíveis erros serão marcadas como LSA;
 Versão 0.5
 		Correções
 			Inserir
@@ -90,6 +94,7 @@ Versão 0.1
 
 --------Issues & Troubles
 	-> Delete com problema!
+	-> Locate(LSA) retorna sempre!
 	-> Get com contagem apartir do 1 será que há problema?
 	-> Versão 1.0 espara-se dela teste em massa feito nas
 			listas simples e duplamente encadeadas;
