@@ -100,10 +100,8 @@ Versão 0.2
 			
 Versão 0.1
 		Introdução
-			Automatico.sh
-			Automatização do processo de Commit
-			Nome com espaço convertido para underline
-			Escolha de Commit/Push
+			Automatico.sh com processo automático de Commit\Push,
+				nome com espaço convertido para underline
 
 --------Issues & Troubles
 	-> Delete com problema!
