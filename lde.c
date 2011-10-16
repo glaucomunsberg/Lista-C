@@ -53,44 +53,56 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 novo->chave = chave;
 	 if( anterior == NULL)
 	 {
-		 printf("Anterior é nulo!n");
-		 //Se não houver nada na estrutura
 		 novo->prev = NULL;
 		 novo->next = NULL;
 		 descritor->head = novo;
 		 if( descritor->tail == NULL)
 		 {
-			 printf("Nao tem nada e é novo!\n");
-			 //Se não houver nada e não for nova a estrutura
+			 
+			 /*
+			  * Se não houver nada e nova a estrutura
+			  */
+			  
 			 descritor->tail = novo;
 			 descritor->tamanho++;
 		 }
 		 else
 		 {
-			 printf("Nao tem nada e não é novo!\n");
+			 			 
+			 /*
+			  * Se não houver nada e  não for
+			  * nova a estrutura
+			  */
+			  
 			 novo->next->prev = novo;
 			 descritor->tamanho++;
 		 }
 	 }
 	 else
 	 {
-		 printf("Inserido no meio!\n");
-		 
 		 novo->next = anterior->next;
 		 novo->prev = anterior;
 		 anterior->next = novo;
 		 if(novo->next == NULL)
 		 {
-			 //Se for no fim
-			 printf("esta no fim\n");
+			 
+			 /*
+			  * Se for inserido no final
+			  * do vetor
+			  */
+			  
 			 descritor->tail = novo;
 			 descritor->tamanho++;
 			 printf("ANT->PRE %p\nANT->NEX %p\nNOV->PRE %p\nNOVO->NEX %p", anterior->prev, anterior->next, novo->prev, novo->next);
 		 }
 		 else
 		 {
-			 //Se for no meio
-			 printf("esta no meio!");
+			 
+			 /*
+			  * Se for no inserido no meio
+			  * do vetor
+			  */
+			  
 			 novo->next->prev = novo;
 			 descritor->tamanho++;
 		 }
@@ -115,15 +127,13 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	temp = malloc(sizeof(struct nodo));
 	if(descritor->head == NULL)
 	{
-		printf("Não tem nada na lista!");
+		printf("Ooops! Não tem nada na lista!");
 		return NULL;
 	}
 	else
 	{
 		printf("FLAG!\n");
-		temp->prev = descritor->head->prev;
-		temp->next = descritor->head->next;
-		temp->chave = descritor->head->chave;
+		temp = descritor->head;
 		if( temp->next == NULL)
 		{
 			if(temp->chave == posicao)
@@ -145,6 +155,7 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 				if(temp->chave == posicao)
 				{
 					printf("ACHOU O VALOR! E é %d\n", temp->chave);
+					
 					/*
 					 * Temp é uma identificador temporário
 					 * 	e seu indereço não pode ser passado
@@ -152,12 +163,32 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 					 * 	próximo assinala qual é o anterior
 					 * 	para ser passado como nodo correto.
 					 */
-					 temp = temp->next;
-					 return temp->prev;
+					 
+					 if( temp->next != NULL)
+					 {
+						 temp = temp->next;
+						 return temp->prev;
+					 }
+					 else
+					 {
+						 temp = temp->prev;
+						 return temp->next;
+					 }
 				}
 				else
 				{
-					temp = temp->next;
+						/*
+						 * Se o valor não for achado
+						 * então verificará se o proximo
+						 * é Null, se isso for verdade
+						 * retorna ao não achar
+						 */
+						 
+						temp = temp->next;
+						if(temp == NULL)
+						{
+							return NULL;
+						}
 				}
 			}
 		}
@@ -254,9 +285,14 @@ int print(struct nodo *ptr)
 	 }
 	 else
 	 {
-		 printf("\n\n		%p<-Prev.NODO\n",ptr->prev);
-		 printf("			    NODO = %d\n",ptr->chave);
-		 printf("			    NODO->Next %p\n", ptr->next);
+		 printf("		Nodo: %p\n", ptr);
+		 printf("		%p Prev<-Nodo \n", ptr->prev);
+		 printf("				 %d\n", ptr->chave);
+		 printf("	    	   		Nodo->Next %p\n\n", ptr->next);
+		
+		 //printf("\n\n		%p<-Prev.NODO\n",ptr->prev);
+		 //printf("			    NODO = %d\n",ptr->chave);
+		 //printf("			    NODO->Next %p\n", ptr->next);
 		 return 1;
 	 }
 	return 0;

@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	for(;;)
 	{
 		system("clear");
-		printf("Lista Duplamente Encadeada\n	1.Insert\n	2.get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir nodo\n	8.Imprimir Lista\n	0.Sair\nESCOLHA: ");
+		printf("Lista Duplamente Encadeada\n	1.Insert\n	2.Get\n	3.Set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir Nodo\n	8.Imprimir Lista\n	0.Sair\nESCOLHA: ");
 		do
 		{
 			scanf("%d",&escolha);
@@ -88,6 +88,7 @@ int main(int argc, char **argv)
 					}
 					else
 					{
+						printf("\n\n		Novo valor:");
 						scanf("%d", &chave);
 						retorno = set(NODO,&chave,&descritor);
 						if(retorno == 1)
@@ -111,7 +112,6 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 7: 
-					printf("NEXT: %p", NODO->next);
 					retorno = print(NODO);
 					if( retorno == 0)
 					{
@@ -139,24 +139,21 @@ void imprimir(struct desc_lista *descritor)
 	}
 	else
 	{
-		printf("\n\n		%p head<-Lista \n", descritor->head);
+		printf("\n\n		%p head<-Lista \n\n", descritor->head);
 		struct nodo *temp;
 		temp = malloc(sizeof(struct nodo));
 		temp = descritor->head;
-		if( temp->next == NULL)
+		int a=1;
+		while(a)
 		{
-			printf("\n		    %p Prev<-Nodo \n", temp->prev);
-			printf("			       %d\n", temp->chave);
-			printf("	   	 	   	Nodo->Next %p\n\n", temp->next);
-		}
-		else
-		{
-			while(temp->next != NULL)
+			printf("		Nodo: %p\n", temp);
+			printf("		%p Prev<-Nodo \n", temp->prev);
+			printf("				 %d\n", temp->chave);
+			printf("	    	   		Nodo->Next %p\n\n", temp->next);
+			temp = temp->next;
+			if(temp == NULL)
 			{
-				printf("\n		%p Prev<-Nodo \n", temp->prev);
-				printf("			  %d\n", temp->chave);
-				printf("	    	   	Nodo->Next %p\n\n", temp->next);
-				temp = temp->next;
+				a = 0;
 			}
 		}
 		printf("	    		        Lista->Tail %p\n", descritor->tail);

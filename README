@@ -1,9 +1,16 @@
+Versão 0.8
+		Correções
+			Imprimir Lista corrigido
+			Imprimir Nodo corrigido
+			Menu corrigido
+			warning de Flag maioria deletadas
+			
 Versão 0.7
 		Introdução
 			Imprimir Nodo
 		Correções
 			Menu corrigido
-			Imprimir retorno não maquiado
+			Imprimir Lista retorno não maquiado
 			Inserir corrigido na inserção no meio
 
 Versão 0.6.2
@@ -69,4 +76,4 @@ Versão 0.1
 		Escolha de Commit/Push
 
 --------Issues & Troubles
-	-> Get com erro no último procurado. Quando acha da erro!
+	->
