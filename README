@@ -1,7 +1,7 @@
 Versão 0.8.2
 		Correções
 			Issolada a função DELETE
-			Remoção de arquivos *.*~
+			Remoção de arquivos *.*~ e *.o do repositorio
 			Interface aprimorada (LSA)
 Versão 0.8.1
 		Introdução
