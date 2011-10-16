@@ -1,9 +1,9 @@
 ############################# Makefile ##########################
-all: ListaSeq ListaDup
+all: lastest ldetest
 LAS = las.o lastest.o
 #Lista Sequencial################################################
-ListaSeq: $(LAS)
-	gcc -g $(LAS) -o ListaSeq
+lastest: $(LAS)
+	gcc -g $(LAS) -o lastest
 
 lastest.o: las.h lastest.c
 	gcc -c lastest.c
@@ -13,8 +13,8 @@ las.o: las.h las.c
 	
 #Lista Duplamente encadeada######################################
 LDE = lde.o	ldetest.o
-ListaDup:$(LDE)
-	gcc -g $(LDE) -o ListaDup
+ldetest:$(LDE)
+	gcc -g $(LDE) -o ldetest
 	
 ldetest.o: lde.h ldetest.c
 	gcc -c ldetest.c

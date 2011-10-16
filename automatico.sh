@@ -18,7 +18,9 @@ while [ $start = true ]; do
 		fi
 		#
 		echo "- Carregando os arquivos...                     -"
-		git add *.*
+		git add *.c
+		git add *.h
+		git add *.sh
 		git add README
 		git add Makefile
 		echo "- Insira o nome do commit:                      -"
