@@ -177,7 +177,7 @@ int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 	 free(temp);
 	return 1;
 }
-int delete(struct nodo *ptr, struct desc_lista *descritor)
+int remov(struct nodo *ptr, struct desc_lista *descritor)
 {
 	/*
 	 * Entradas:	ptr 		- Nodo recebido
@@ -188,23 +188,31 @@ int delete(struct nodo *ptr, struct desc_lista *descritor)
 	 * Saída:		0 - Se houver um erro
 	 * 				1 - Se não houver erro
 	 */
-	 
+	 printf("Ptr %p\n", ptr);
 	if(descritor->tail == ptr)
 	{
 		descritor->tail = ptr->prev;
+		ptr->prev->next = NULL;
+		ptr->prev->next = NULL;
+		descritor->tamanho--;
+		printf("REMOVEU da cola\n");
 		return 1;
 	}
 	else
 	{
 		ptr->next->prev = ptr->prev;
-		if( descritor->head = ptr)
+		if( descritor->head == ptr)
 		{
 			descritor->head = ptr->next;
+			descritor->tamanho--;
+			printf("REMOVEU da ponta!\n");
 			return 1;
 		}
 		else
 		{
 			ptr->prev->next = ptr->next;
+			descritor->tamanho--;
+			printf("REMOVEU do fim!\n");
 			return 1;
 		}
 	}

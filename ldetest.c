@@ -119,17 +119,17 @@ int main(int argc, char **argv)
 					break;
 			case 4: 
 					//--Delete
-					break;
 					if( NODO == NULL)
 					{
 						printf("	O nodo não foi escolhido!\n");
 					}
 					else
 					{
-						retorno = delete(NODO,&descritor);
+						retorno = remov(NODO,&descritor);
 						if(retorno == 1)
 						{
 							printf("		O valor foi deletado com sucesso.\n");
+							NODO = NULL;
 						}
 						else
 						{
@@ -173,7 +173,7 @@ int main(int argc, char **argv)
 					retorno = print(NODO);
 					if( retorno == 0)
 					{
-						printf("		O nodo não pode ser imprimido\n");
+						printf("		O Nodo é nulo.\n");
 					}
 					getchar();getchar();
 					break;
