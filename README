@@ -1,8 +1,13 @@
+Versão 0.9
+		Correções
+			Locate (LSA) remodelado
+			
 Versão 0.8.2
 		Correções
 			Issolada a função DELETE
-			Remoção de arquivos *.*~ e *.o do repositorio
+			Remoção de arquivos *.*~ e *.o do repositório
 			Interface aprimorada (LSA)
+			
 Versão 0.8.1
 		Introdução
 			Locate
@@ -41,12 +46,13 @@ Versão 0.6.1
 			Init
 			Length
 			Inserir
-			Imprimir Lista [Maquiado]
-			Get [Maquiado]
+			Imprimir Lista (Maquiado)
+			Get (Maquiado)
 		Correções
 			Makefile adaptado
 			Automatico.sh correções de logica
 			De retorno do nodo
+			
 Versão 0.6
 		Introdução
 			Corpo das funções (top-down)
@@ -56,45 +62,51 @@ Versão 0.6
 			Make compilação dos dois Projetos
 
 Versão 0.5.1
-		Correções
-			Correção do endereço do ponteiro no get
 		Introdução
 			Nova Interface ao automático
 			Locate
 			Length
+		Correções
+			Correção do endereço do ponteiro no get
 		Nota: Implementada todas as funções ligadas a Lista de Alocação Seguêncial(LSA),
 				a partir dessa versão será apenas implementada e desenvolvida a 
 				lista dulpamente encadeada(LDE); Possíveis erros serão marcadas como LSA;
+				
 Versão 0.5
-		Correções
-			Inserir
-			Imprimir
-			Interface
-				Do programam
-				Do automatico
 		Introdução
 			Set
 			Get
 			Delete
+		Correções
+			Inserir
+			Imprimir
+			Interface do programa
+			Interface do automatico
+			
 Versão 0.4
 		Introdução
 			Makefile ao sync
 			Imprimir
 			Inserir
+			
 Versão 0.3
-		Correções de compulação nos arquivos .h e .c
+		Correções
+			Compilação nos arquivos las.h e las.c
+			
 Versão 0.2
-		Correções de erros de compilação
-		Remoção de conflito com o Fedora15
+		Correções
+			Erros de compilação
+			Remoção de conflito com o Fedora15
+			
 Versão 0.1
-	Automatico.sh
-		Automatização do processo de Commit
-		Nome com espaço convertido para underline
-		Escolha de Commit/Push
+		Introdução
+			Automatico.sh
+			Automatização do processo de Commit
+			Nome com espaço convertido para underline
+			Escolha de Commit/Push
 
 --------Issues & Troubles
 	-> Delete com problema!
-	-> Locate(LSA) retorna sempre!
 	-> Get com contagem apartir do 1 será que há problema?
 	-> Versão 1.0 espara-se dela teste em massa feito nas
 			listas simples e duplamente encadeadas;
