@@ -1,3 +1,6 @@
+Versão 0.8.2
+		Correções
+			Issolada a função DELETE
 Versão 0.8.1
 		Introdução
 			Locate
@@ -87,3 +90,5 @@ Versão 0.1
 --------Issues & Troubles
 	-> Delete com problema!
 	-> Get com contagem apartir do 1 será que há problema?
+	-> Versão 1.0 espara-se dela teste em massa feito nas
+			listas simples e duplamente encadeadas;

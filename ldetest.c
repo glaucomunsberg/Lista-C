@@ -119,6 +119,7 @@ int main(int argc, char **argv)
 					break;
 			case 4: 
 					//--Delete
+					break;
 					if( NODO == NULL)
 					{
 						printf("	O nodo não foi escolhido!\n");
