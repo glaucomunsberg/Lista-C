@@ -67,8 +67,6 @@ int main(int argc, char **argv)
 					{
 						printf("		O valor foi inserido com sucesso!\n");
 						flag = 0;
-						//-----------------teste
-						printf("		HEAD: %p\n		TAIL: %p\n	TAMANHO: %d", descritor.head,descritor.tail,descritor.tamanho);
 					}
 					else
 					{
@@ -88,10 +86,6 @@ int main(int argc, char **argv)
 					else
 					{
 						printf("		Retornou.\n");
-						//--teste
-						printf("Valor %i\n", NODO->chave);
-						printf("NODO %p\n", NODO);
-						printf("NODO->NEXT %p\n", NODO->next);
 					}
 					getchar();getchar();
 					break;
@@ -156,8 +150,6 @@ int main(int argc, char **argv)
 						else
 						{
 							printf("		Nodo encontrado.\n");
-							//teste
-							printf("Valor %p\nPrev %p\nNext %p", NODO, NODO->prev, NODO->next);
 						}
 					}
 					getchar();getchar();

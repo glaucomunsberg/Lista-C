@@ -75,7 +75,6 @@ int main(int argc, char **argv)
 					else
 					{
 						printf("\n		O valor da posição %d é %d.\n", posicao, *ptr);
-						printf("\n		O endereço de memoria da posição %d é %p.\n", posicao, ptr);
 					}
 					getchar();getchar();
 					break;

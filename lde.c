@@ -38,14 +38,14 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 	 
 	 if(descritor == NULL)
 	 {
-		 printf("Ooops! O descritor é nulo!\n");
+		 printf("		Ooops! O descritor é nulo!\n");
 		 return 0;		 
 	 }
 	 struct nodo *novo;
 	 novo = (struct nodo *) malloc(sizeof(struct nodo));
 	 if( novo == NULL)
 	 {
-		 printf("Ooops! Socorro! Malloc retornou NULL!");
+		 printf("		Ooops! Socorro! Malloc retornou NULL!");
 		 return 0;
 	 }
 	 	 
@@ -93,7 +93,6 @@ int insert(struct nodo *anterior, int chave, struct desc_lista *descritor)
 			  
 			 descritor->tail = novo;
 			 descritor->tamanho++;
-			 printf("ANT->PRE %p\nANT->NEX %p\nNOV->PRE %p\nNOVO->NEX %p", anterior->prev, anterior->next, novo->prev, novo->next);
 		 }
 		 else
 		 {
@@ -135,10 +134,8 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 		temp = descritor->head; 
 		for(i = 0; i<= posicao;i++)
 		{
-			printf("vai roda..\n");
 			if( i == posicao)
 			{
-				printf("vai retornar %p em %d\n", temp,i);
 				return temp;
 			}
 			else
@@ -195,7 +192,6 @@ int remov(struct nodo *ptr, struct desc_lista *descritor)
 		ptr->prev->next = NULL;
 		ptr->prev->next = NULL;
 		descritor->tamanho--;
-		printf("REMOVEU da cola\n");
 		return 1;
 	}
 	else
@@ -205,14 +201,12 @@ int remov(struct nodo *ptr, struct desc_lista *descritor)
 		{
 			descritor->head = ptr->next;
 			descritor->tamanho--;
-			printf("REMOVEU da ponta!\n");
 			return 1;
 		}
 		else
 		{
 			ptr->prev->next = ptr->next;
 			descritor->tamanho--;
-			printf("REMOVEU do fim!\n");
 			return 1;
 		}
 	}
@@ -237,13 +231,11 @@ struct nodo *locate(int chave, struct nodo *de)
 	 temp = de;
 	 for(;;)
 	 {
-		 printf("vai roda..\n");
 		 if(temp->chave == chave)
 		 {
 			 if(temp->next != NULL)
 			 {
 				 temp = temp->next;
-				 printf("achou e vai retornar %p\n", temp->prev);
 				 return temp->prev;
 			 }
 			 else
@@ -253,13 +245,11 @@ struct nodo *locate(int chave, struct nodo *de)
 					 return de;
 				 }
 				 temp = temp->prev;
-				 printf("achou e vai retornar %p\n", temp->next);
 				 return temp->next;
 			 }
 		 }
 		 else
 		 {
-			 printf("ainda não\n");
 			 temp = temp->next;
 			 if(temp == NULL)
 			 {
