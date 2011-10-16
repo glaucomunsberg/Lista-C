@@ -1,3 +1,11 @@
+Versão 0.8.1
+		Introdução
+			Locate
+		Correções
+			Get função REfeita
+			Menu com funções de controle refinado
+			Automatico corrigido
+			
 Versão 0.8
 		Correções
 			Imprimir Lista corrigido
@@ -41,6 +49,7 @@ Versão 0.6
 		Correção
 			Estrutura da Lista
 			Make compilação dos dois Projetos
+
 Versão 0.5.1
 		Correções
 			Correção do endereço do ponteiro no get
@@ -76,4 +85,5 @@ Versão 0.1
 		Escolha de Commit/Push
 
 --------Issues & Troubles
-	->
+	-> Delete com problema!
+	-> Get com contagem apartir do 1 será que há problema?

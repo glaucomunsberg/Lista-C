@@ -20,7 +20,7 @@ while [ $start = true ]; do
 		echo "- Carregando os arquivos...                     -"
 		git add *.*
 		git add README
-		git Makefile
+		git add Makefile
 		echo "- Insira o nome do commit:                      -"
 		read nome
 		git commit -m ${nome// /_}

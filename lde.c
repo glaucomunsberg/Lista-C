@@ -125,75 +125,32 @@ struct nodo *get(unsigned int posicao, struct desc_lista *descritor)
 	 
 	struct nodo *temp;
 	temp = malloc(sizeof(struct nodo));
-	if(descritor->head == NULL)
+	int i;
+	if( posicao > descritor->tamanho)
 	{
-		printf("Ooops! Não tem nada na lista!");
-		return NULL;
+		return 0;
 	}
 	else
 	{
-		printf("FLAG!\n");
-		temp = descritor->head;
-		if( temp->next == NULL)
+		temp = descritor->head; 
+		for(i = 1; i<= posicao;i++)
 		{
-			if(temp->chave == posicao)
+			printf("vai roda..\n");
+			if( i == posicao)
 			{
-				printf("Primeira posicao!");
-				return descritor->head;
+				printf("vai retornar %p em %d\n", temp,i);
+				return temp;
 			}
 			else
 			{
-				printf("Uma não tem o valor!");
-				return NULL;
-			}
-		}
-		else
-		{
-			for(;;)
-			{
-				printf("Procurando...\n");
-				if(temp->chave == posicao)
+				temp = temp->next;
+				if(temp == NULL)
 				{
-					printf("ACHOU O VALOR! E é %d\n", temp->chave);
-					
-					/*
-					 * Temp é uma identificador temporário
-					 * 	e seu indereço não pode ser passado
-					 * 	então tem recebe o próximo e o 
-					 * 	próximo assinala qual é o anterior
-					 * 	para ser passado como nodo correto.
-					 */
-					 
-					 if( temp->next != NULL)
-					 {
-						 temp = temp->next;
-						 return temp->prev;
-					 }
-					 else
-					 {
-						 temp = temp->prev;
-						 return temp->next;
-					 }
-				}
-				else
-				{
-						/*
-						 * Se o valor não for achado
-						 * então verificará se o proximo
-						 * é Null, se isso for verdade
-						 * retorna ao não achar
-						 */
-						 
-						temp = temp->next;
-						if(temp == NULL)
-						{
-							return NULL;
-						}
+					return temp;
 				}
 			}
 		}
 	}
-	return NULL;
 }
 int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 {
@@ -222,9 +179,20 @@ int set(struct nodo *ptr, int *x, struct desc_lista *descritor)
 }
 int delete(struct nodo *ptr, struct desc_lista *descritor)
 {
+	/*
+	 * Entradas:	ptr 		- Nodo recebido
+	 * 				Descritor	- Lista que será trabalha
+	 *
+	 * Função:		Remove o prt (NODO) da estrutura
+	 * 
+	 * Saída:		0 - Se houver um erro
+	 * 				1 - Se não houver erros
+	 */
+	 
 	if(descritor->tail == ptr)
 	{
 		descritor->tail = ptr->prev;
+		return 1;
 	}
 	else
 	{
@@ -232,10 +200,12 @@ int delete(struct nodo *ptr, struct desc_lista *descritor)
 		if( descritor->head = ptr)
 		{
 			descritor->head = ptr->next;
+			return 1;
 		}
 		else
 		{
 			ptr->prev->next = ptr->next;
+			return 1;
 		}
 	}
 	return 0;
@@ -244,7 +214,7 @@ struct nodo *locate(int chave, struct nodo *de)
 {	
 	/*
 	 * Entradas:	Chave 		- Valor de um nodo
-	 * 				Descritor	- Lista que será trabalha
+	 * 				De			- Nodo do qual começao trabalho
 	 *
 	 * Função:		Retorna ponteiro para o primeiro elemento
 	 * 				com chave procurando a partir da posição 
@@ -253,6 +223,42 @@ struct nodo *locate(int chave, struct nodo *de)
 	 * Saída:		Ponteiro	- Valor onde se encontra a chave
 	 * 				NULL		- Se não houver o valor
 	 */
+	 
+	 struct nodo *temp;
+	 temp = malloc(sizeof(struct nodo));
+	 temp = de;
+	 for(;;)
+	 {
+		 printf("vai roda..\n");
+		 if(temp->chave == chave)
+		 {
+			 if(temp->next != NULL)
+			 {
+				 temp = temp->next;
+				 printf("achou e vai retornar %p\n", temp->prev);
+				 return temp->prev;
+			 }
+			 else
+			 {
+				 if(temp->prev == NULL)
+				 {
+					 return de;
+				 }
+				 temp = temp->prev;
+				 printf("achou e vai retornar %p\n", temp->next);
+				 return temp->next;
+			 }
+		 }
+		 else
+		 {
+			 printf("ainda não\n");
+			 temp = temp->next;
+			 if(temp == NULL)
+			 {
+				 return NULL;
+			 }
+		 }
+	 }
 
 }
 unsigned int length(struct desc_lista *descritor)
@@ -289,10 +295,6 @@ int print(struct nodo *ptr)
 		 printf("		%p Prev<-Nodo \n", ptr->prev);
 		 printf("				 %d\n", ptr->chave);
 		 printf("	    	   		Nodo->Next %p\n\n", ptr->next);
-		
-		 //printf("\n\n		%p<-Prev.NODO\n",ptr->prev);
-		 //printf("			    NODO = %d\n",ptr->chave);
-		 //printf("			    NODO->Next %p\n", ptr->next);
 		 return 1;
 	 }
 	return 0;

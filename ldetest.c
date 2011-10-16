@@ -19,6 +19,7 @@
 void imprimir(struct desc_lista *descritor);
 int main(int argc, char **argv)
 {
+	
 	//Identificadores e Atribuições----------
 	
 	int escolha;
@@ -27,12 +28,14 @@ int main(int argc, char **argv)
 	int *ptr;
 	int posi;
 	unsigned int posicao;
-	
+	int flag;
 	struct desc_lista descritor;
 	struct nodo *NODO;
 	NODO = NULL;
 	descritor.tamanho = 0;
+	flag = 1;
 	//-------------------------------------
+	
 	descritor = *init();
 	for(;;)
 	{
@@ -44,16 +47,26 @@ int main(int argc, char **argv)
 		}while( escolha < 0 || escolha >8);
 		switch(escolha)
 		{
-			case 0: printf("\n\nSaindo do programa...\n\n");
+			case 0:
+					//--Sair
+					printf("\n\nSaindo do programa...\n\n");
 					exit(0);
 					break;
 			case 1:
+					//--Inserir
+					if(flag == 0 && NODO == NULL && descritor.tamanho > 0)
+					{
+						printf("		Nodo não escolhido.\n");
+						getchar();getchar();
+						break;
+					}
 					printf("\n\n		Valor:");
 					scanf("%d", &chave);
 					retorno  = insert(NODO, chave, &descritor);
 					if( retorno == 1)
 					{
 						printf("		O valor foi inserido com sucesso!\n");
+						flag = 0;
 						//-----------------teste
 						printf("		HEAD: %p\n		TAIL: %p\n	TAMANHO: %d", descritor.head,descritor.tail,descritor.tamanho);
 					}
@@ -64,12 +77,13 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 2: 
+					//--Get
 					printf("\n\nPosição: ");
 					scanf("%d",&posicao);
 					NODO = get(posicao, &descritor);
 					if( NODO == NULL)
 					{
-						printf("		Não retornou nada!\n");
+						printf("		Não exista a posição.\n");
 					}
 					else
 					{
@@ -82,6 +96,7 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 3: 
+					//--Set
 					if(NODO == NULL)
 					{
 						printf("	O nodo não foi escolhido!\n");
@@ -103,15 +118,57 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 4: 
+					//--Delete
+					if( NODO == NULL)
+					{
+						printf("	O nodo não foi escolhido!\n");
+					}
+					else
+					{
+						retorno = delete(NODO,&descritor);
+						if(retorno == 1)
+						{
+							printf("		O valor foi deletado com sucesso.\n");
+						}
+						else
+						{
+							printf("		O valor não pode ser deletado por causa de um erro.\n");
+						}
+					}
+					getchar();getchar();
 					break;
 			case 5: 
+					//--Locate
+					if(NODO == NULL)
+					{
+						printf("	O nodo não foi escolhido!\n");
+					}
+					else
+					{
+						printf("\n\n		Valor a procurar:");
+						scanf("%d", &chave);
+						NODO = locate(chave, NODO);
+						if(NODO == NULL)
+						{
+							printf("		O nodo não foi encontrado.\n");
+						}
+						else
+						{
+							printf("		Nodo encontrado.\n");
+							//teste
+							printf("Valor %p\nPrev %p\nNext %p", NODO, NODO->prev, NODO->next);
+						}
+					}
+					getchar();getchar();
 					break;
 			case 6:
+					//--Length
 					retorno = length(&descritor);
 					printf("\n\n		O tamanho da lista é de %d\n", retorno);
 					getchar();getchar();
 					break;
 			case 7: 
+					//--Imprimir Nodo
 					retorno = print(NODO);
 					if( retorno == 0)
 					{
@@ -120,10 +177,13 @@ int main(int argc, char **argv)
 					getchar();getchar();
 					break;
 			case 8:
+					//--Imprimir Lista
 					imprimir(&descritor);
 					getchar();getchar();
 					break;
-			default: printf("		Ooops! Você não deveria estar aqui! o.O"); exit(0);
+			default: 
+					printf("		Ooops! Você não deveria estar aqui! o.O"); 
+					exit(0);
 		}
 		
 	}
