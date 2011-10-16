@@ -129,28 +129,21 @@ int *locate(int chave, struct desc_lista *descritor)
 	 * Saída:		NULL		- Caso ocorra um erro
 	 * 				Ponteiro	- Caso tenha sucesso
 	 */
+	 
 	int i;
 	int j;
-	j = -1;
 	i=0;
 	
 	while( i < descritor->position)
 	{
 		if( descritor->vet[i] == chave)
 		{
-			j = i;
-			i = descritor->position;
+			return &descritor->vet[i];
+			i = MAX+1;
 		}
 		i++;
 	}
-	if( j == 999 )
-	{
-		return NULL;
-	}
-	else
-	{
-		return &descritor->vet[j];
-	}
+	return NULL;
 }
 unsigned int length(struct desc_lista *descritor)
 {
