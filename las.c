@@ -1,3 +1,18 @@
+/* Autoria:
+ * 
+ * 		Universidade Federal de Pelotas
+ * 		Centro de Desenvolvimento Tecnologico
+ * 		Bacharelado em Ciência da Computação
+ * 		Glauco Roberto Munsberg dos Santos
+ * 			glaucomunsberg@gmail.com		
+ * 
+ * Sobre o Projeto:
+ * 		Trabalho desenvolvido como avaliação de Estrutura de Dados 1
+ * 		Para maiores informações sobre o projeto,
+ * 		ele se encontra disponível pelo endereço http://github.com/glaucomunsberg/PHP
+ * 
+ */
+
 #include "las.h"
 #include <stdio.h>
 
