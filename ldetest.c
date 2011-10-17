@@ -40,11 +40,11 @@ int main(int argc, char **argv)
 	for(;;)
 	{
 		system("clear");
-		printf("Lista Duplamente Encadeada\n	1.Insert\n	2.Get\n	3.Set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir Nodo\n	8.Imprimir Lista\n	0.Sair\nESCOLHA: ");
+		printf("Lista Duplamente Encadeada\n	1.Insert\n	2.Get\n	3.Set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir Nodo\n	\n	0.Sair\nESCOLHA: ");
 		do
 		{
 			scanf("%d",&escolha);
-		}while( escolha < 0 || escolha >8);
+		}while( escolha < 0 || escolha >7);
 		switch(escolha)
 		{
 			case 0:
@@ -73,6 +73,8 @@ int main(int argc, char **argv)
 						printf("		Oops! O valor %d não pode ser inserido na posição %d\n", chave, posicao);
 					}
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 2: 
 					//--Get
@@ -88,6 +90,8 @@ int main(int argc, char **argv)
 						printf("		Retornou.\n");
 					}
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 3: 
 					//--Set
@@ -110,6 +114,8 @@ int main(int argc, char **argv)
 						}
 					}
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 4: 
 					//--Delete
@@ -131,6 +137,8 @@ int main(int argc, char **argv)
 						}
 					}
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 5: 
 					//--Locate
@@ -153,12 +161,16 @@ int main(int argc, char **argv)
 						}
 					}
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 6:
 					//--Length
 					retorno = length(&descritor);
 					printf("\n\n		O tamanho da lista é de %d\n", retorno);
 					getchar();getchar();
+					imprimir(&descritor);
+					getchar();
 					break;
 			case 7: 
 					//--Imprimir Nodo
@@ -168,11 +180,8 @@ int main(int argc, char **argv)
 						printf("		O Nodo é nulo.\n");
 					}
 					getchar();getchar();
-					break;
-			case 8:
-					//--Imprimir Lista
 					imprimir(&descritor);
-					getchar();getchar();
+					getchar();
 					break;
 			default: 
 					printf("		Ooops! Você não deveria estar aqui! o.O"); 

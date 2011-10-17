@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	for(;;)
 	{
 		system("clear");
-		printf("Lista de Alocação Seguencial\n	1.Insert\n	2.Get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	7.Imprimir\n	0.Sair\nESCOLHA: ");
+		printf("Lista de Alocação Seguencial\n	1.Insert\n	2.Get\n	3.set\n	4.Delete\n	5.Locate\n	6.Length\n	\n	0.Sair\nESCOLHA: ");
 		do
 		{
 			scanf("%d",&escolha);
@@ -62,6 +62,8 @@ int main(int argc, char **argv)
 						printf("		O valor %d não pode ser inserido na posição %d.\n", chave, posicao);
 					}
 					getchar();getchar();
+					imprimir( &descritor);
+					getchar();
 					break;
 			case 2: 
 					//--Get
@@ -77,6 +79,8 @@ int main(int argc, char **argv)
 						printf("\n		O valor da posição %d é %d.\n", posicao, *ptr);
 					}
 					getchar();getchar();
+					imprimir( &descritor);
+					getchar();
 					break;
 			case 3: 
 					//--Set
@@ -94,6 +98,8 @@ int main(int argc, char **argv)
 						printf("\n		Ooops! O valor %d não pode ser inserido na posição %d", chave, posicao);
 					}
 					getchar();getchar();
+					imprimir( &descritor);
+					getchar();
 					break;
 			case 4: 
 					//--Delete
@@ -109,6 +115,8 @@ int main(int argc, char **argv)
 						printf("\n		A posição %d não pode ser deletada.\n", posicao);
 					}
 					getchar();getchar();
+					imprimir( &descritor);
+					getchar();
 					break;
 			case 5: 
 					//--Locate
@@ -124,17 +132,16 @@ int main(int argc, char **argv)
 						printf("\n		O valor %d está na posição %p.\n", chave, ptr);
 					}
 					getchar();getchar();
+					imprimir( &descritor);
+					getchar();
 					break;
 			case 6:
 					//--Length
 					retorno = length( &descritor);
 					printf("\n		A Lista tem comprimento %d\n", retorno);
 					getchar();getchar();
-					break;
-			case 7: 
-					//--Imprimir
 					imprimir( &descritor);
-					getchar();getchar();
+					getchar();
 					break;
 			default:
 					//--Exit
